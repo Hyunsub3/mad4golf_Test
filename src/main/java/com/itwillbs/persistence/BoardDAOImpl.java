@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.BoardVO;
 import com.itwillbs.domain.PageVO;
+import com.itwillbs.domain.ProductVO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -40,17 +41,16 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public List<BoardVO> listAll() throws Exception {
-		log.info(" listAll() ");
+	public List<ProductVO> listAll(String category) throws Exception {
+		log.info("listAll() 호출");
 		
 		// DB - 모든정보 가져오기(SQL/mapper 호출)
-		List<BoardVO> boardList =
-		    sqlSession.selectList(NAMESPACE + ".listAll");
+		List<ProductVO> productList =
+		    sqlSession.selectList(NAMESPACE + ".listAll", category);
 		
-		//log.info(boardList+"");
-		log.info(boardList.size()+"");
+		log.info(productList.size()+"");
 		
-		return boardList;
+		return productList;
 	}
 
 	@Override

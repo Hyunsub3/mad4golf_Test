@@ -12,10 +12,9 @@
 	</insert>
 	
 	<!-- 글목록 조회(all)-->
-	<select id="listAll" resultType="BoardVO" resultMap="vo" >
-		select * from tbl_board 
-		where bno &gt; 0 
-		order by bno desc
+	<select id="listAll" resultType="ProductVO">
+		select * from products
+		where category = #{category}
 	</select>
 	
 	<resultMap type="com.itwillbs.domain.BoardVO" id="vo">

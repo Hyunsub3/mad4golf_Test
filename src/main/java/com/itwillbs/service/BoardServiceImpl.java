@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.itwillbs.domain.BoardVO;
 import com.itwillbs.domain.PageVO;
+import com.itwillbs.domain.ProductVO;
 import com.itwillbs.persistence.BoardDAO;
 
 @Service
@@ -30,13 +31,12 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> getBoardListAll() throws Exception {
+	public List<ProductVO> getBoardListAll(String category) throws Exception {
 		log.info("getBoardListAll() 호출");
 
-		log.info(" DAO - listAll() ");
-		List<BoardVO> boardList = dao.listAll();
+		List<ProductVO> productList = dao.listAll(category);
 
-		return boardList;
+		return productList;
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.itwillbs.domain.BoardVO;
 import com.itwillbs.domain.PageVO;
+import com.itwillbs.domain.ProductVO;
 
 public interface BoardService {
 	
@@ -11,7 +12,7 @@ public interface BoardService {
 	public void boardWrite(BoardVO vo) throws Exception;
 	
 	// 글 전체 목록
-	public List<BoardVO> getBoardListAll() throws Exception;
+	public List<ProductVO> getBoardListAll(String catetory) throws Exception;
 	
 	// 글 1개정보 불러오기
 	public BoardVO getBoard(Integer bno) throws Exception;

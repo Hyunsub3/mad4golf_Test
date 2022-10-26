@@ -15,17 +15,16 @@ import com.itwillbs.domain.PageVO;
 import com.itwillbs.domain.ProductVO;
 
 @Repository
-public class BoardDAOImpl implements BoardDAO {
+public class ProductDAOImpl implements ProductDAO {
 
 	private static final Logger log 
-	    = LoggerFactory.getLogger(BoardDAOImpl.class);
+	    = LoggerFactory.getLogger(ProductDAOImpl.class);
 	
 	// SqlSession객체 주입(DI)
 	@Autowired
 	private SqlSession sqlSession;
 
-	private static final String NAMESPACE 
-	                = "com.itwillbs.mapper.BoardMapper";
+	private static final String NAMESPACE = "com.itwillbs.mapper.ProductMapper";
 	
 	@Override
 	public void insertBoard(BoardVO vo) throws Exception{
@@ -41,14 +40,21 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public List<ProductVO> listAll(String category) throws Exception {
+	public List<ProductVO> listAll(ProductVO vo) throws Exception {
 		log.info("listAll() 호출");
 		
 		// DB - 모든정보 가져오기(SQL/mapper 호출)
-		List<ProductVO> productList =
-		    sqlSession.selectList(NAMESPACE + ".listAll", category);
+		List<ProductVO> productList;
 		
-		log.info(productList.size()+"");
+		if(vo.getGender() == 0) {
+			productList = sqlSession.selectList(NAMESPACE + ".listAll", vo);
+			log.info("Mapper - listAll 호출");
+		} else {
+			productList = sqlSession.selectList(NAMESPACE + ".listAll2", vo);			
+			log.info("Mapper - listAll2 호출");
+		}
+		
+		log.info("상품 개수 : "+ productList.size() + "개");
 		
 		return productList;
 	}

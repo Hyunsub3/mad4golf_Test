@@ -107,7 +107,7 @@
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
                                             <li><a href="${pageContext.request.contextPath }/product/listAll?category=Driver">Driver</a></li>
-                                            <li><a href="${pageContext.request.contextPath }/product/listAll?category=Iron">Iron</a></li>
+                                            <li><a href="${pageContext.request.contextPath }/product/listAll?category=Iron&gender=2">Iron</a></li>
                                             <li><a href="${pageContext.request.contextPath }/product/listAll?category=Util">Util</a>
                                               <!--   <ul class="dropdown">
                                                     <li><a href="shop.html">Shop</a></li>

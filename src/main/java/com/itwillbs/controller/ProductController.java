@@ -19,7 +19,7 @@ import com.itwillbs.domain.BoardVO;
 import com.itwillbs.domain.PageMakerVO;
 import com.itwillbs.domain.PageVO;
 import com.itwillbs.domain.ProductVO;
-import com.itwillbs.service.BoardService;
+import com.itwillbs.service.ProductService;
 
 @Controller
 @RequestMapping("/product/*")
@@ -37,7 +37,7 @@ public class ProductController {
 	
 	// 서비스객체 필요(의존적)
 	@Inject
-	private BoardService service;
+	private ProductService service;
 	
 	
 	// http://localhost:8080/board/regist
@@ -77,8 +77,8 @@ public class ProductController {
 	}
 	
 	
-	//http://localhost:8080/board/listAll
-	// 게시판 리스트 - 조회 (GET)
+	// http://localhost:8080/product/listAll
+	// 상품 리스트 - 조회 (GET)
 	@RequestMapping(value = "/listAll",method = RequestMethod.GET)
 	public String listAllGET(ProductVO vo, Model model, HttpSession session) throws Exception {
 		log.info("listAllGET() 호출 ");
@@ -88,10 +88,10 @@ public class ProductController {
 		log.info("gender : "+ vo.getGender());
 		
 		// 연결된 view 페이지로 정보 전달
-		model.addAttribute("category", vo.getCategory());
+		// model.addAttribute("category", vo.getCategory());
 		
 		// 서비스 - 글전체 목록 가져오는 메서드
-		List<ProductVO> productList = service.getBoardListAll(vo.getCategory());
+		List<ProductVO> productList = service.getProductListAll(vo);
 		
 		model.addAttribute("productList", productList);
 		

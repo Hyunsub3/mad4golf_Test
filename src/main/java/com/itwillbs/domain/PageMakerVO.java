@@ -20,37 +20,34 @@ public class PageMakerVO {
 		this.vo = vo;
 	}
 	public void setTotalCnt(int totalCnt) {
-		this.totalCnt = totalCnt;	// DB에서 계산된 값으로 초기화
+		this.totalCnt = totalCnt; // DB에서 계산된 값으로 초기화
 		
 		calcData();
 	}
-		
+	
 	public void calcData() {
-		System.out.println(" 페이징 처리 필요값 계산 하기 ");
+		System.out.println("페이징 처리 필요값 계산하기");
 		
-		endPage 
-		= (int)Math.ceil(vo.getPage()/(double)displayPageNum)*displayPageNum;
+		endPage = (int)Math.ceil(vo.getPage()/(double)displayPageNum) * displayPageNum;
 		
-		startPage
-		= (endPage - displayPageNum) +1; 
+		startPage = endPage - displayPageNum + 1;
 		
-		// 모든글 개수 / 페이지 사이즈 => 총 필요한 페이지수 
-		int tmpEndPage 
-		= (int)Math.ceil(totalCnt / (double)vo.getPerPageNum());
+		// 모든 글개수 / 페이지 사이즈 => 총 필요한 페이지 수
+		int tmpEndPage = (int)Math.ceil(totalCnt / (double)vo.getPerPageNum());
 		
 		if(endPage > tmpEndPage) {
 			endPage = tmpEndPage;
 		}
 		
 		// 이전
-		prev = (startPage == 1)? false:true;
+		prev = (startPage == 1)?false:true;
 		
 		// 다음
-		next = (endPage * vo.getPerPageNum() >= totalCnt)? false:true;
+		next = ((endPage * vo.getPerPageNum()) >= totalCnt)?false:true;
 		
-		System.out.println(" 페이징 처리 필요값 계산 하기 완료 ");
-		
-	}//calcData()
+		System.out.println("페이징 처리 필요값 계산하기 완료");
+	}
+	
 	public int getTotalCnt() {
 		return totalCnt;
 	}
@@ -90,20 +87,18 @@ public class PageMakerVO {
 		return vo;
 	}
 
-
-
 	public int getDisplayPageNum() {
 		return displayPageNum;
 	}
 	public void setDisplayPageNum(int displayPageNum) {
 		this.displayPageNum = displayPageNum;
 	}
+	
 	@Override
 	public String toString() {
 		return "PageMakerVO [totalCnt=" + totalCnt + ", startPage=" + startPage + ", endPage=" + endPage + ", prev="
 				+ prev + ", next=" + next + ", vo=" + vo + ", displayPageNum=" + displayPageNum + "]";
 	}
-	
-	
 
+	
 }

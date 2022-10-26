@@ -10,16 +10,16 @@ import org.springframework.stereotype.Service;
 import com.itwillbs.domain.BoardVO;
 import com.itwillbs.domain.PageVO;
 import com.itwillbs.domain.ProductVO;
-import com.itwillbs.persistence.BoardDAO;
+import com.itwillbs.persistence.ProductDAO;
 
 @Service
-public class BoardServiceImpl implements BoardService {
+public class ProductServiceImpl implements ProductService {
 
-	private static final Logger log = LoggerFactory.getLogger(BoardServiceImpl.class);
+	private static final Logger log = LoggerFactory.getLogger(ProductServiceImpl.class);
 
 	// BoardDAO 객체 주입(DI)
 	@Autowired
-	private BoardDAO dao;
+	private ProductDAO dao;
 
 	@Override
 	public void boardWrite(BoardVO vo) throws Exception {
@@ -31,10 +31,10 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<ProductVO> getBoardListAll(String category) throws Exception {
-		log.info("getBoardListAll() 호출");
+	public List<ProductVO> getProductListAll(ProductVO vo) throws Exception {
+		log.info("getProductListAll() 호출");
 
-		List<ProductVO> productList = dao.listAll(category);
+		List<ProductVO> productList = dao.listAll(vo);
 
 		return productList;
 	}

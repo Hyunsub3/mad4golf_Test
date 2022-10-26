@@ -1,5 +1,5 @@
 SpringBoard.txt
-
+수정~~!~!~!~!~!~!~!~dsfasd
   DB   
     데이터베이스 생성, 계정준비
     테이블 설계, 생성
@@ -11,7 +11,7 @@ SpringBoard.txt
     파트별 테스트 준비
       
   View
-    화면방식 결정(JSP/HTML(+js))
+    화면방식 결정(JSP/HTML(+js))   
     페이지 경로설정( 절대경로, 상대경로 )
     
     

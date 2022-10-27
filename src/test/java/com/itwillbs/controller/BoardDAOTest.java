@@ -10,8 +10,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.itwillbs.domain.BoardVO;
 import com.itwillbs.domain.PageVO;
-import com.itwillbs.persistence.BoardDAO;
-import com.itwillbs.persistence.BoardDAOImpl;
+import com.itwillbs.persistence.ProductDAO;
+import com.itwillbs.persistence.ProductDAOImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(
@@ -24,7 +24,7 @@ public class BoardDAOTest {
 	
 	// DAO 객체필요(의존관계)
 	@Autowired
-	private BoardDAO dao; //의존관계 주입
+	private ProductDAO dao; //의존관계 주입
 	
 	//@Test
 	public void 테스트확인() {

@@ -22,8 +22,6 @@
 </head>
 
 <body>
-${productList }
-${productList[0].prod_name }
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-circle"></div>
@@ -198,6 +196,7 @@ ${productList[0].prod_name }
                         <!-- Search by Terms -->
                         <div class="search_by_terms">
                             <form action="#" method="post" class="form-inline">
+								<input type="button" class="btn alazea-btn w-10" style="width: 100px;" value="상품등록" onclick="location.href='./productInsert'">
                                 <select class="custom-select widget-title">
                                   <option selected>Short by Popularity</option>
                                   <option value="1">Short by Newest</option>
@@ -215,6 +214,7 @@ ${productList[0].prod_name }
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <!-- Sidebar Area -->
 <!--                 <div class="col-12 col-md-4 col-lg-3"> -->
@@ -367,7 +367,6 @@ ${productList[0].prod_name }
 <!--                         </div> -->
 <!--                     </div> -->
 <!--                 </div> -->
-
                 <!-- All Products Area -->
                 <div class="col-12 col-md-8 col-lg-9">
                     <div class="shop-products-area">
@@ -378,7 +377,7 @@ ${productList[0].prod_name }
                                 <div class="single-product-area mb-50">
                                     <!-- Product Image -->
                                     <div class="product-img">
-                                        <a href="shop-details.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/40.png" alt=""></a>
+                                        <a href="shop-details.html"><img src="${pageContext.request.contextPath }/resources/product_img/driver1.png" alt=""></a>
                                         <!-- Product Tag -->
                                         <div class="product-tag">
                                             <a href="#">Hot</a>
@@ -394,7 +393,7 @@ ${productList[0].prod_name }
                                         <a href="shop-details.html">
                                             <p>${productList[0].prod_name }</p>
                                         </a>
-                                        <h6>$10.99</h6>
+                                        <h6>${productList[0].price }원</h6>
                                     </div>
                                 </div>
                             </div>

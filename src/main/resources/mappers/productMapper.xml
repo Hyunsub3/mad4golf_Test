@@ -13,13 +13,13 @@
 	
 	<!-- 상품 목록 조회(all)-->
 	<select id="listAll" resultType="ProductVO">
-		select * from products
+		select * from mfg_products
 		where category = #{category}
 	</select>
 	
 	<!-- 상품 목록 조회(성별)-->
 	<select id="listAll2" resultType="ProductVO">
-		select * from products
+		select * from mfg_products
 		where category = #{category}
 		and gender = #{gender}
 	</select>

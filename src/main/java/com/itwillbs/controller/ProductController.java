@@ -79,7 +79,7 @@ public class ProductController {
 	
 	// http://localhost:8080/product/listAll
 	// 상품 리스트 - 조회 (GET)
-	@RequestMapping(value = "/listAll",method = RequestMethod.GET)
+	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
 	public String listAllGET(ProductVO vo, Model model, HttpSession session) throws Exception {
 		log.info("listAllGET() 호출 ");
 		
@@ -100,6 +100,12 @@ public class ProductController {
 		session.setAttribute("isUpdate", false);
 		
 		return "/product/shop";
+	}
+	
+	// 상품등록 페이지 이동
+	@RequestMapping(value = "/productInsert", method = RequestMethod.GET)
+	public void productInsert() throws Exception {
+		log.info("productInsert() 호출");
 	}
 	
 	

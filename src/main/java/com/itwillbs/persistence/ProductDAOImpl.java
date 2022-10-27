@@ -46,7 +46,7 @@ public class ProductDAOImpl implements ProductDAO {
 		// DB - 모든정보 가져오기(SQL/mapper 호출)
 		List<ProductVO> productList;
 		
-		if(vo.getGender() == 0) {
+		if(vo.getGender() == 0) { //성별없음:0 남자:1 여자:2
 			productList = sqlSession.selectList(NAMESPACE + ".listAll", vo);
 			log.info("Mapper - listAll 호출");
 		} else {

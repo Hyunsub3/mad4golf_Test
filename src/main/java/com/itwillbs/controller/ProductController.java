@@ -94,10 +94,10 @@ public class ProductController {
 		List<ProductVO> productList = service.getProductListAll(vo);
 		
 		model.addAttribute("productList", productList);
+		log.info("상품 : " + productList);
 		
 		// 세션객체 - isUpdate 정보전달
 		session.setAttribute("isUpdate", false);
-		log.info(productList + "");
 		
 		return "/product/shop";
 	}

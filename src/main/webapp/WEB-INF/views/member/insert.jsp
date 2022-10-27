@@ -51,7 +51,7 @@
 				return false;
 			}
 
-		});
+		}); 
 		
 		// 이메일 제어 
 		$('#join').submit(function() {

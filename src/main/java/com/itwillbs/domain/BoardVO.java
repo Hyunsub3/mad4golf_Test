@@ -21,7 +21,6 @@ public class BoardVO {
 	private int re_reference;
 	private int re_sequence;
 	
-	//--------------------------------------------------------------------------------------------------
 
 	
 	

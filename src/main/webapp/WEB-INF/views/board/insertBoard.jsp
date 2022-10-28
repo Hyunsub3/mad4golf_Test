@@ -13,7 +13,6 @@
 	
 		<input type="hidden" name="user_id" value="다은쓰">
 	
-	
 		<div class="">
 		
 			<div class="">

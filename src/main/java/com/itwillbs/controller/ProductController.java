@@ -58,13 +58,13 @@ public class ProductController {
 		log.info("글쓰기 정보 : "+vo);
 		
 		// 서비스 - 글쓰기 동작
-		service.boardWrite(vo);
+		//service.boardWrite(vo);
 		
 		log.info(" 글쓰기 완료 !! ");
 		
 		//model.addAttribute("msg", "OK");
 		
-		// RedirectAttributes 객체 => rediret 페이지 이동시에만 사용가능
+		// RedirectAttributes 객체 => redirect 페이지 이동시에만 사용가능
 		rttr.addFlashAttribute("msg", "OK");
 		// -> 1회성 데이터 (체크용), URL에 표시 x
 		
@@ -102,10 +102,26 @@ public class ProductController {
 		return "/product/shop";
 	}
 	
-	// 상품등록 페이지 이동
+	// 상품등록 페이지  - 이동 (GET)
 	@RequestMapping(value = "/productInsert", method = RequestMethod.GET)
-	public void productInsert() throws Exception {
+	public void productInsertGET() throws Exception {
 		log.info("productInsert() 호출");
+		log.info("/product/productInsert.jsp 호출");
+	}
+	
+	// 상품 등록 - 등록 (POST)
+	@RequestMapping(value = "/productInsert",method = RequestMethod.POST)
+	public String productInsertPOST(ProductVO vo) throws Exception{
+		log.info("productInsertPOST() 호출");
+		
+		// 전달된 정보 저장
+		log.info("상품 정보 : " + vo);
+		
+		// 서비스 - 상품등록 동작
+		service.productInsert(vo);
+		
+		// 페이지 이동(리스트) 화면,주소 모두 변경
+		return "redirect:/";
 	}
 	
 	

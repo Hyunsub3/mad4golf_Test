@@ -21,18 +21,86 @@
 
 <style type="text/css">
 #submit {
- background-color: #70C745;
- color: white;
- width: 210px;
- font-weight: bold;
+	background-color: #70C745;
+	color: white;
+	width: 180px;
+	font-weight: bold;
+}
+
+#submit:hover {
+	background-color: white;
+	color: #70C745;
+	border-color: #70C745;
+	cursor: pointer;
+}
+
+#button {
+	color: #767676;
+	width: 180px;
+	font-weight: bold;
+	margin-left: 50px;
+}
+
+#button:hover {
+	background-color: white;
+	color: #70C745;
+	border-color: #70C745;
+	cursor: pointer;
 }
 </style>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		alert("확인");
+		// alert("확인");
+		$('#form').submit(function(){
+			// alert("확인");
+			// 카테고리 제어
+			if($('#category option:selected').val()==""){
+				alert('카테고리를 선택해주세요.');
+				$('#category').focus();
+				return false;
+			}
+			// 가격 제어
+			if($('#price').val()==""){
+				alert('판매가격을 입력해주세요.');
+				$('#price').focus();
+				return false;
+			}
+			// 제목 제어
+			if($('#prod_name').val()==""){
+				alert('판매상품의 이름을 입력해주세요.');
+				$('#prod_name').focus();
+				return false;
+			}
+			// 상품설명 제어
+			if($('#detail').val()==""){
+				alert('상품을 설명해주세요.');
+				$('#detail').focus();
+				return false;
+			}
+			// 상품상태 제어
+			if ($('input[name=condition]:radio:checked').length < 1 ) {
+				alert("상품 상태를 선택해주세요.");
+				return false;
+			}
+			// 상품성별 제어
+			if ($('input[name=gender]:radio:checked').length < 1 ) {
+				alert("상품 성별을 선택해주세요.");
+				return false;
+			}
+			// 상품이미지 제어
+			if($('#prod_img').val()==""){
+				alert('상품이미지를 넣어주세요.');
+				$('#prod_img').focus();
+				return false;
+			}
+			
+			alert("상품 등록이 완료되었습니다.");
+		});
 	});
 </script>
+
+
 </head>
 
 <body>
@@ -201,94 +269,62 @@
     <div class="checkout_area mb-100" style="width: 800px; margin: 0px auto;">
         <div class="container">
             <div class="row justify-content-between">
-<!--                 <div class="col-12 col-lg-7"> -->
-                    <div class="checkout_details_area clearfix">
-                        <h5>상품등록</h5>
-                        <form action="${pageContext.request.contextPath }/product/listAll" method="post" id="form1">
-                        	<!-- 로그인 기능 구현 시 value 값 수정 필요 ${loginID } -->
-                        	<input type="hidden" value="itwill01" name="seller_id">
-                            <div class="row">
-                                <div class="col-md-6 mb-4" id="category">
-                                    <label for="country">Category</label>
-                                    <select class="custom-select d-block w-100" id="category" name="category">
-                                    	<option value="" selected="selected" disabled="disabled">카테고리</option>
-                                        <option value="드라이버">드라이버</option>
-                                        <option value="아이언">아이언</option>
-                                        <option value="유틸">유틸</option>
-                                        <option value="웨지">웨지</option>
-                                        <option value="버터">버터</option>
-                                        <option value="기타">기타</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                	<label for="city">Price</label>
-                                	<input type="number" class="form-control" id="price" name="price">
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="email_address">Subject</label>
-                                    <input type="text" class="form-control" id="prod_name" placeholder="제목을 입력해주세요." name="prod_name">
-                                </div>
-                                <div class="col-md-12 mb-4">
-                                    <label for="order-notes">Detail</label>
-                                    <textarea class="form-control" id="detail" cols="30" rows="10" style="height: 300px;" placeholder="내용을 입력해주세요." name="detail"></textarea>
-                                </div>
-                                <div class="form-group d-flex align-items-center">
-                                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="order-notes" style="margin-right: 30px;">Conditon</label>
-                                	<input type="radio" class="custom-control-input1" id="condition1" name="condition" value="최상">&nbsp;상
-                                	<input type="radio" class="custom-control-input2" id="condition2" style="margin-left: 30px;" name="condition" value="상">&nbsp;상
-                                	<input type="radio" class="custom-control-input3" id="condition3" style="margin-left: 30px;" name="condition" value="중">&nbsp;중
-                                	<input type="radio" class="custom-control-input4" id="condition4" style="margin-left: 30px;" name="condition" value="하">&nbsp;하
-                                	<input type="radio" class="custom-control-input5" id="condition5" style="margin-left: 30px;" name="condition" value="최하">&nbsp;하
-                                </div>
-                                <div class="form-group d-flex align-items-center">
-                                	<label for="order-notes" style="margin: 0px 30px 0px 100px;">Gender</label>
-                                	<input type="radio" class="custom-control-input1" id="gender1" name="gender" value="1">&nbsp;남
-                                	<input type="radio" class="custom-control-input2" id="gender2" style="margin-left: 30px;" name="gender" value="2">&nbsp;여
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="company">Image</label>
-                                    <input type="file" class="form-control" id="prod_img" name="prod_img">
-                                </div>
-								<div style="margin:0px auto;">
-									<div class="checkout-btn mt-30" >
-										<input type="submit" id="submit" value="상품 등록">
-                        			</div>
-                        		</div>
-                				
-<!--                                 <div class="col-12 mb-4"> -->
-<!--                                     <label for="company">Address *</label> -->
-<!--                                     <input type="text" class="form-control" id="address" value=""> -->
-<!--                                 </div> -->
-<!--                                 <div class="col-md-6 mb-4"> -->
-<!--                                     <label for="city">Town/City *</label> -->
-<!--                                     <input type="text" class="form-control" id="city" value=""> -->
-<!--                                 </div> -->
-<!--                                 <div class="col-md-6 mb-4"> -->
-<!--                                     <label for="state">State/Province *</label> -->
-<!--                                     <input type="text" class="form-control" id="state" value=""> -->
-<!--                                 </div> -->
-<!--                                 <div class="col-md-6 mb-4"> -->
-<!--                                     <label for="postcode">Postcode/Zip</label> -->
-<!--                                     <input type="text" class="form-control" id="postcode" value=""> -->
-<!--                                 </div> -->
-<!--                                 <div class="col-12"> -->
-<!--                                     <div class="d-flex align-items-center"> -->
-<!--                                         Single Checkbox -->
-<!--                                         <div class="custom-control custom-checkbox d-flex align-items-center mr-30"> -->
-<!--                                             <input type="checkbox" class="custom-control-input" id="customCheck1"> -->
-<!--                                             <label class="custom-control-label" for="customCheck1">Ship to a different address?</label> -->
-<!--                                         </div> -->
-<!--                                         Single Checkbox -->
-<!--                                         <div class="custom-control custom-checkbox d-flex align-items-center"> -->
-<!--                                             <input type="checkbox" class="custom-control-input" id="customCheck2"> -->
-<!--                                             <label class="custom-control-label" for="customCheck2">Create an account?</label> -->
-<!--                                         </div> -->
-<!--                                     </div> -->
-<!--                                 </div> -->
+            	<div class="checkout_details_area clearfix">
+                	<h5>상품등록</h5>
+                    <form action="${pageContext.request.contextPath }/product/productInsert" method="post" id="form">
+                    	<!-- 로그인 기능 구현 시 value 값 수정 필요 ${loginID } -->
+                    	<input type="hidden" value="itwill01" name="seller_id">
+                        <div class="row">
+                        	<div class="col-md-6 mb-4" id="category">
+                            	<label for="country">Category</label>
+                                <select class="custom-select d-block w-100" id="category" name="category">
+                                	<option value="" selected="selected" disabled="disabled">카테고리</option>
+                                	<option value="드라이버">드라이버</option>
+                                	<option value="아이언">아이언</option>
+                                    <option value="유틸">유틸</option>
+                                    <option value="웨지">웨지</option>
+                                    <option value="버터">버터</option>
+                                    <option value="기타">기타</option>
+                                </select>
                             </div>
-                        </form>
-                    </div>
-<!--            </div> -->
+                            <div class="col-md-6 mb-4">
+                            	<label for="city">Price</label>
+                            	<input type="number" class="form-control" id="price" name="price">
+                            </div>
+                            <div class="col-12 mb-4">
+                                <label for="email_address">Subject</label>
+                                <input type="text" class="form-control" id="prod_name" placeholder="제목을 입력해주세요." name="prod_name">
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <label for="order-notes">Detail</label>
+                                <textarea class="form-control" id="detail" cols="30" rows="10" style="height: 300px;" placeholder="내용을 입력해주세요." name="detail"></textarea>
+                            </div>
+                            <div class="form-group d-flex align-items-center">
+                            	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="order-notes" style="margin-right: 30px;">Conditon</label>
+                            	<input type="radio" class="custom-control-input1" id="condition" name="condition" value="최상"><span style="min-width: 40px;">&nbsp;&nbsp;최상</span>
+                            	<input type="radio" class="custom-control-input2" id="condition" style="margin-left: 30px;" name="condition" value="상"><span style="min-width: 40px;">&nbsp;&nbsp;상</span>
+                            	<input type="radio" class="custom-control-input3" id="condition" style="margin-left: 20px;" name="condition" value="중"><span style="min-width: 40px;">&nbsp;&nbsp;중</span>
+                            	<input type="radio" class="custom-control-input4" id="condition" style="margin-left: 20px;" name="condition" value="하"><span style="min-width: 40px;">&nbsp;&nbsp;하</span>
+                            	<input type="radio" class="custom-control-input5" id="condition" style="margin-left: 20px;" name="condition" value="최하"><span style="min-width: 40px;">&nbsp;&nbsp;최하</span>
+                            </div>
+                            <div class="form-group d-flex align-items-center">
+                            	<label for="order-notes" style="margin: 0px 20px 0px 100px;">Gender</label>
+                            	<input type="radio" class="custom-control-input1" id="gender1" name="gender" value="1">&nbsp;남
+                            	<input type="radio" class="custom-control-input2" id="gender2" style="margin-left: 20px;" name="gender" value="2">&nbsp;여
+                            </div>
+                            <div class="col-12 mb-4">
+                                <label for="company">Image</label>
+                                <input type="file" class="form-control" id="prod_img" name="prod_img">
+                            </div>
+							<div style="margin:0px auto;">
+								<div class="checkout-btn mt-30" >
+									<input type="submit" id="submit" value="상품 등록">
+									<input type="button" id="button" value="이  전" onclick="history.back();">
+                        		</div>
+                        	</div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

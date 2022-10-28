@@ -163,7 +163,7 @@
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
         <!-- Top Breadcrumb Area -->
-        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(img/bg-img/24.jpg);">
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/24.jpg);">
             <h2>Shop</h2>
         </div>
 
@@ -196,7 +196,7 @@
                         <!-- Search by Terms -->
                         <div class="search_by_terms">
                             <form action="#" method="post" class="form-inline">
-								<input type="button" class="btn alazea-btn w-10" style="width: 100px;" value="상품등록" onclick="location.href='./productInsert'">
+								<input type="button" class="btn alazea-btn w-10" style="width: 100px;" value="상품등록" onclick="location.href='${pageContext.request.contextPath }/product/productInsert'">
                                 <select class="custom-select widget-title">
                                   <option selected>Short by Popularity</option>
                                   <option value="1">Short by Newest</option>

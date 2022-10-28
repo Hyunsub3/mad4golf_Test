@@ -23,7 +23,7 @@ public class BoardDAOImpl implements BoardDAO{
 	//boardMapper 가상이름 정의
 	private static final String NAMESPACE = "com.itwillbs.mapper.BoardMapper";
 	
-	
+	 
 	/////////////////////////////////////////////////////////////////////////////
 	
 	//글내용

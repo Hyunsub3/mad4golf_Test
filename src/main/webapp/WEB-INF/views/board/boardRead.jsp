@@ -191,7 +191,7 @@
                     <div class="section-heading">
                         <h2>글 상세 페이지</h2>
                         <p>보세용~.~</p>
-                    </div>
+                    </div> 
                     
                     <!-- 수정, 삭제 시 필요한 글번호 저장 -->
 					<form role="form" method="post">

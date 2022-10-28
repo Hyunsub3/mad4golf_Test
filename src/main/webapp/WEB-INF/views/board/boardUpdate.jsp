@@ -12,7 +12,7 @@
 
     <!-- Title -->
     <title>Alazea - Gardening &amp; Landscaping HTML Template</title>
-
+ 
     <!-- Favicon -->
     <link rel="icon" href="${pageContext.request.contextPath }/resources/img/core-img/favicon.ico">
 

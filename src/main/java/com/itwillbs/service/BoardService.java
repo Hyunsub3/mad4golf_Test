@@ -17,3 +17,4 @@ public interface BoardService {
 	//목록??
 	public List<BoardVO> listAll() throws Exception;
 }
+ 

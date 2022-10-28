@@ -69,7 +69,7 @@ public class BoardController {
 		
 		//전달 정보 저장
 		log.info("################################" + vo);
-		
+		 
 		//서비스 - 글 정보 수정
 		int cnt = service.updateBoard(vo);
 		

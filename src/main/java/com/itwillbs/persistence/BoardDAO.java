@@ -17,5 +17,5 @@ public interface BoardDAO {
 	//목록??
 	public List<BoardVO> listAll() throws Exception;
 
-	
+	 
 }

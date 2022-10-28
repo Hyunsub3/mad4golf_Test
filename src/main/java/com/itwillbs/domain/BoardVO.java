@@ -20,7 +20,7 @@ public class BoardVO {
 	private Timestamp write_date;
 	private int re_reference;
 	private int re_sequence;
-	private int readcount;
+	private int readcount; 
 
 	
 }

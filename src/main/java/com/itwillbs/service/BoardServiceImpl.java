@@ -26,7 +26,7 @@ public class BoardServiceImpl implements BoardService{
 	public BoardVO getBoard(Integer board_num) throws Exception {
 		return dao.getBoard(board_num);
 	}
-	
+	 
 	//조회수
 	@Override
 	public void updateReadCount(Integer board_num) throws Exception {

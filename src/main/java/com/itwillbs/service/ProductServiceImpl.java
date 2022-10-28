@@ -20,16 +20,7 @@ public class ProductServiceImpl implements ProductService {
 	// BoardDAO 객체 주입(DI)
 	@Autowired
 	private ProductDAO dao;
-
-	@Override
-	public void boardWrite(BoardVO vo) throws Exception {
-		log.info(" boardWrite(vo) 호출 ");
-		// DAO - insertBoard(vo) 호출
-		dao.insertBoard(vo);
-
-		log.info(" boardWrite(vo) 완료 ");
-	}
-
+	
 	@Override
 	public List<ProductVO> getProductListAll(ProductVO vo) throws Exception {
 		log.info("getProductListAll() 호출");
@@ -37,6 +28,13 @@ public class ProductServiceImpl implements ProductService {
 		List<ProductVO> productList = dao.listAll(vo);
 
 		return productList;
+	}
+	
+	@Override
+	public void productInsert(ProductVO vo) throws Exception {
+		log.info("productInsert(vo) 호출");
+
+		dao.insertProduct(vo);
 	}
 
 	@Override

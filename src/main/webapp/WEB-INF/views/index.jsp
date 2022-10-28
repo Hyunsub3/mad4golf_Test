@@ -825,7 +825,7 @@
     <!-- ##### Blog Area End ##### -->
 
     <!-- ##### Subscribe Area Start ##### -->
-    <section class="subscribe-newsletter-area" style="background-image: url(img/bg-img/subscribe.png);">
+    <section class="subscribe-newsletter-area" style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/subscribe.png);">
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-12 col-lg-5">

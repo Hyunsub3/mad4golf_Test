@@ -30,6 +30,6 @@ public interface ProductDAO {
 	public List<BoardVO> listPage(Integer page) throws Exception;
 	
 	// 글 전체목록 - listPage(pageVO)
-	public List<BoardVO> listPage(PageVO vo) throws Exception;
+	public List<ProductVO> listPage(PageVO vo) throws Exception;
 	
 }

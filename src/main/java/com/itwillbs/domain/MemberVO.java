@@ -12,6 +12,10 @@ public class MemberVO {
 	private double latitude;
 	private double longitude;
 
+
+
+	
+
 	public String getUser_id() {
 		return user_id;
 	}
@@ -66,6 +70,12 @@ public class MemberVO {
 				+ user_phone + ", reg_date=" + reg_date + ", score=" + score + ", latitude=" + latitude + ", longitude="
 				+ longitude + "]";
 	}
+
 	//
 
 }
+
+	
+	
+}
+

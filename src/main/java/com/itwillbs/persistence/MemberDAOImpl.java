@@ -1,13 +1,14 @@
 package com.itwillbs.persistence;
 
-import java.util.List;
 
+import java.util.List;
 import javax.inject.Inject;
 
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +16,7 @@ import com.itwillbs.domain.MemberVO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
+
 	
 	private static final Logger log = 
 			LoggerFactory.getLogger(MemberDAOImpl.class);
@@ -22,12 +24,24 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	private final SqlSession sqlSession;
 
+
+
+	private static final String NAMESPACE = "com.itwillbs.mapper.MemberMapper";
+	
+	private final SqlSession sqlSession;
+	
+
 	@Inject
 	public MemberDAOImpl(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	} 
 
+
 	// 회원가입 처리.
+
+	
+	// 회원가입 처리
+
 	@Override
 	public void insert(MemberVO vo) throws Exception {
 		sqlSession.insert(NAMESPACE+".insert", vo);
@@ -38,6 +52,7 @@ public class MemberDAOImpl implements MemberDAO {
 	public int idCheck(MemberVO vo) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+".idCheck", vo);
 	}
+
 
 	@Override
 	public MemberVO loginMember(MemberVO vo) {
@@ -85,3 +100,9 @@ public class MemberDAOImpl implements MemberDAO {
 
 
 }
+
+	
+
+		
+}
+

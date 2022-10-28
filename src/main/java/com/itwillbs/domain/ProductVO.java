@@ -2,40 +2,39 @@ package com.itwillbs.domain;
 
 public class ProductVO {
 	private int prod_num;
-	private String seller_num;
-	private String buyer_num;
+	private String seller_id;
 	private String prod_name;
+	private String prod_img;
 	private int price;
 	private String detail;
 	private String condition;
 	private String category;
 	private int gender;
-	private String state;
 	private int like_count;
-	private String payment;
+	
 	public int getProd_num() {
 		return prod_num;
 	}
 	public void setProd_num(int prod_num) {
 		this.prod_num = prod_num;
 	}
-	public String getSeller_num() {
-		return seller_num;
+	public String getSeller_id() {
+		return seller_id;
 	}
-	public void setSeller_num(String seller_num) {
-		this.seller_num = seller_num;
-	}
-	public String getBuyer_num() {
-		return buyer_num;
-	}
-	public void setBuyer_num(String buyer_num) {
-		this.buyer_num = buyer_num;
+	public void setSeller_id(String seller_id) {
+		this.seller_id = seller_id;
 	}
 	public String getProd_name() {
 		return prod_name;
 	}
 	public void setProd_name(String prod_name) {
 		this.prod_name = prod_name;
+	}
+	public String getProd_img() {
+		return prod_img;
+	}
+	public void setProd_img(String prod_img) {
+		this.prod_img = prod_img;
 	}
 	public int getPrice() {
 		return price;
@@ -67,31 +66,18 @@ public class ProductVO {
 	public void setGender(int gender) {
 		this.gender = gender;
 	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
 	public int getLike_count() {
 		return like_count;
 	}
 	public void setLike_count(int like_count) {
 		this.like_count = like_count;
 	}
-	public String getPayment() {
-		return payment;
-	}
-	public void setPayment(String payment) {
-		this.payment = payment;
-	}
 	
 	@Override
 	public String toString() {
-		return "ProductVO [prod_num=" + prod_num + ", seller_num=" + seller_num + ", buyer_num=" + buyer_num
-				+ ", prod_name=" + prod_name + ", price=" + price + ", detail=" + detail + ", condition=" + condition
-				+ ", category=" + category + ", gender=" + gender + ", state=" + state + ", like_count=" + like_count
-				+ ", payment=" + payment + "]";
+		return "ProductVO [prod_num=" + prod_num + ", seller_id=" + seller_id + ", prod_name=" + prod_name
+				+ ", prod_img=" + prod_img + ", price=" + price + ", detail=" + detail + ", condition=" + condition
+				+ ", category=" + category + ", gender=" + gender + ", like_count=" + like_count + "]";
 	}
 	
 	

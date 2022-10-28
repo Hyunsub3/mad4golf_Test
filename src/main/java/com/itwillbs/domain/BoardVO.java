@@ -24,6 +24,7 @@ public class BoardVO {
 
 	
 	
+	
 	public int getReadcount() {
 		return readcount;
 	}

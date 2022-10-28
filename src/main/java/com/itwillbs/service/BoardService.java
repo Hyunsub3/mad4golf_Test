@@ -17,4 +17,5 @@ public interface BoardService {
 	public List<BoardVO> listPage(PageVO vo) throws Exception;
 	
 	
+	
 }

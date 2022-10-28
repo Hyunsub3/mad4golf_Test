@@ -18,6 +18,7 @@ public class PageMakerVO {
 	private int displayPageNum = 10;   // 페이지 블럭의 크기 
 
 	
+	
 
 	
 	public void setVo(PageVO vo) { // 이미생성된 객체 사용

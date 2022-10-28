@@ -26,6 +26,7 @@ import com.itwillbs.service.BoardService;
 public class BoardController {
 
 	
+	
 	private static final Logger log 
     = LoggerFactory.getLogger(BoardController.class);
 

@@ -12,6 +12,7 @@
 
 
 
+
 	<select id="listBoardAll" resultType="BoardVO" resultMap="vo">
 		select * from mfg_board 
 		where board_num &gt; 0 

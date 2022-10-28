@@ -32,6 +32,7 @@ public class BoardServiceImpl implements BoardService{
 		dao.boardWrite(vo);
 	}
 	
+	
 
 	//------------------------------------------------------------------------
 	

@@ -15,4 +15,5 @@ public interface BoardService {
 
 	//글 리스트 가져오기(페이징 처리)
 	public List<BoardVO> listPage(PageVO vo) throws Exception;
+	
 }

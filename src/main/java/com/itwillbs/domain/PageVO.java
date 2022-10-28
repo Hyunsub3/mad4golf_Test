@@ -5,6 +5,9 @@ public class PageVO {
 	private int page;		// 페이지
 	private int perPageNum; // 페이지 크기
 	
+	
+	//--------------------------------------------------------------------------------------------------
+
 	public PageVO() {
 		// 페이징 처리의 정보가 없을 때(기본값)
 		this.page = 1;

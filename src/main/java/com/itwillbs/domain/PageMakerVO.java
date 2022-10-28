@@ -1,5 +1,7 @@
 package com.itwillbs.domain;
 
+
+
 public class PageMakerVO {
 	// 페이징 처리에 관한 모든 동작 관리( 개수 출력 + 하단 페이징 블럭)
 	
@@ -14,6 +16,9 @@ public class PageMakerVO {
 	private PageVO vo;		// 페이지 번호, 페이지의 크기
 	
 	private int displayPageNum = 10;   // 페이지 블럭의 크기 
+
+	
+	//--------------------------------------------------------------------------------------------------
 
 	
 	public void setVo(PageVO vo) { // 이미생성된 객체 사용

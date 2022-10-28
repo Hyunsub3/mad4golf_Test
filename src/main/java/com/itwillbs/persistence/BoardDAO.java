@@ -18,4 +18,6 @@ public interface BoardDAO {
 	
 	// 글 전체 목록 - listPage(pageVO)
 	public List<BoardVO> listPage(PageVO vo) throws Exception;
+	
+	
 }

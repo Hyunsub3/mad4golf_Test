@@ -66,7 +66,7 @@ public class MemberController {
 		return result;
 	}
 	
-	// ==========================서하씨 끝, 현섭시작======================================= //
+	// =========================서하씨 끝, 현섭시작====================================== //
 	
 	// 가상주소 http://localhost:8080/member/update
 		// => /WEB-INF/views/member/update.jsp

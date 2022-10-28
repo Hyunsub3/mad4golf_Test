@@ -27,7 +27,7 @@ public class MemberDAOImpl implements MemberDAO {
 		this.sqlSession = sqlSession;
 	} 
 
-	// 회원가입 처리
+	// 회원가입 처리.
 	@Override
 	public void insert(MemberVO vo) throws Exception {
 		sqlSession.insert(NAMESPACE+".insert", vo);

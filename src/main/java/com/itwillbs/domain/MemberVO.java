@@ -66,6 +66,6 @@ public class MemberVO {
 				+ user_phone + ", reg_date=" + reg_date + ", score=" + score + ", latitude=" + latitude + ", longitude="
 				+ longitude + "]";
 	}
-
+	//
 
 }

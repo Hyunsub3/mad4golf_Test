@@ -24,7 +24,7 @@ public class MemberServiceImpl implements MemberService{
 		this.dao= dao;
 	}
 
-	//회원 가입 처리
+	//회원 가입 처리.
 	@Override
 	public void insert(MemberVO vo) throws Exception {
 		logger.info("MemberServiceImpl - insert() 호출");

@@ -16,7 +16,7 @@ public interface MemberService {
 	// 로그인 동작2 (메서드 오버로딩)
 	public MemberVO loginMember(String userid, String userpw);
 
-	// 회원정보 조회
+	// 회원정보 조회.
 	public MemberVO getMember(String id);
 		
 	// 회원정보 수정

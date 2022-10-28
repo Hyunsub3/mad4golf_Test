@@ -24,7 +24,7 @@ public class MemberServiceImpl implements MemberService{
 		this.dao= dao;
 	}
 
-	//회원 가입 처리.
+	
 
 	
 	//회원 가입 처리
@@ -41,6 +41,25 @@ public class MemberServiceImpl implements MemberService{
 	public int idCheck(MemberVO vo) throws Exception {
 		return dao.idCheck(vo);
 	}
+
+	// 로그인
+	@Override
+	public MemberVO login(MemberVO vo) throws Exception {
+
+	logger.info("MemberServiceImpl - login(MemberVO vo)  호출");
+	
+	return dao.login(vo);
+	}
+
+	// 로그인 2
+	@Override
+	public MemberVO login(String user_id, String user_pw) throws Exception {
+		return null;
+	}
+	
+	
+	
+}
 
 	@Override
 	public MemberVO getMember(String id) {

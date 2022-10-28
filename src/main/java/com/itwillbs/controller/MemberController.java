@@ -3,7 +3,6 @@ package com.itwillbs.controller;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -65,6 +64,67 @@ public class MemberController {
 		String result = service.idCheck(vo)+"";
 		return result;
 	}
+
+	
+		// ***** 지연 시작 진행중 *****
+	
+		// http://localhost:8088/member/login
+		// 로그인 - GET
+		@RequestMapping(value = "/login",method = RequestMethod.GET )
+		public String login() {
+			log.info(" login() 실행 ");
+			log.info(" 연결된 뷰 페이지로 이동 ");
+			
+			return "/member/login";
+		}
+		
+		// 로그인 - POST
+		@RequestMapping(value = "/login",method = RequestMethod.POST)
+		public String login(MemberVO vo,HttpSession session) throws Exception {
+			log.info(" loginPOST() 호출 ");
+			log.info("@@@@ login : "+vo);
+			
+			MemberVO loginVO = service.login(vo);
+			
+			log.info("loginVO : "+loginVO);
+			
+			// 로그인 여부 확인
+			if(loginVO != null) {
+				
+			session.setAttribute("loginVO", loginVO);
+			
+			return "redirect:/member/main";
+			
+			}else {
+			// 실패 -> 로그인페이지 이동
+			return "redirect:/member/login";
+			}
+		}
+			
+			// http://localhost:8088/member/main
+			// 메인페이지 -  GET    
+			@RequestMapping(value = "/main", method = RequestMethod.GET )
+			public String main() {
+				log.info(" mainGET() 호출 ");
+				log.info(" void 리턴 : /main.jsp 뷰 호출 ");
+				
+				return "member/main";
+			}
+			
+			
+			// 로그아웃 GET/POST
+			@RequestMapping(value = "/logout", method = RequestMethod.GET)
+			public String logout(HttpSession session) {
+				// 로그아웃 -> 세션초기화
+				session.invalidate();
+				log.info(" 세션 초기화 완료 => 로그아웃 ");
+				
+				// 페이지 이동	
+				return "redirect:/member/main";
+			}
+			
+		}
+
 
 	// =========================서하씨 끝, 현섭시작====================================== //
 	

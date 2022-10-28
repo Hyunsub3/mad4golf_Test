@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.itwillbs.mapper.BoardMapper">
+
+
+	<!-- 글내용 -->
+	<select id="getBoard" resultType="com.itwillbs.domain.BoardVO">		
+		select b.board_num, b.board_category, b.user_id, m.user_name, b.title, b.content, b.content_img, b.content_file, b.write_date, b.readcount
+		from mfg_board b join mfg_member m
+		on b.user_id = m.user_id
+		where b.board_num = #{board_num};
+	</select>
+	
+	<!-- 글수정 -->	 
+	<update id="updateBoard">
+	  update mfg_board 
+	  set board_category=#{board_category}, title=#{title},content=#{content},content_img=#{content_img}  
+	  where board_num=#{board_num}	   
+	</update>
+	
+	<!-- 글 조회수 1증가 -->
+	<update id="updateReadCount">
+		update mfg_board
+		set readcount = readcount+1
+		where board_num = #{board_num}
+	</update>
+	
+	<!-- 글삭제 -->
+	<delete id="deleteBoard">
+		delete from mfg_board
+		where board_num=#{board_num}
+	</delete>
+	
+	
+
+</mapper>

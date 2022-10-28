@@ -1,137 +1,76 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-
-	pageEncoding="UTF-8"%>
-
     pageEncoding="UTF-8"%>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+    <!-- Title -->
+    <title>Mad4Golf-&#127948;sup on Coding</title>
 
-<!-- 템플릿 헤더 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-<!-- 템플릿 -->
-<meta name="description" content="">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Favicon -->
+    <link rel="icon" href="/resources/img/core-img/favicon.ico">
 
-<!-- Title -->
-<title>Alazea - Gardening &amp; Landscaping HTML Template</title>
-
-<!-- Favicon -->
-<link rel="icon"
-	href="${pageContext.request.contextPath }/resources/img/core-img/favicon.ico">
-
-<!-- Core Stylesheet -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/style.css">
-
-<!-- 템플릿 -->
-<!-- 템플릿 헤더 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-
-<title>Insert title here</title>
-<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="/resources/style.css">
+    
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript"> </script>
+<script> 
+$(document).ready(function () {
+    $('#join').submit(function(){
+        //alert("알럿!");
+       if ($('.password2').val()!=$('.password').val()) {
+                $('.pass2div').html("비밀번호가 다릅니다. 확인하고 다시 작성해주세요 ❤❤");
+                $('.pass2div').focus();
+                return false;
+            }
+       if($('#user_id2').val()=='1') {
+	         alert('아이디 중복');
+	         return false; 
+	      } 
+       
+       
+       
+    });
+    
 	
-</script>
-<script>
-	$(document).ready(function() {
-		$('#join').submit(function() {
-			//alert("알럿!");
-			if ($('.password2').val() != $('.password').val()) {
-				$('.pass2div').html("비밀번호가 다릅니다. 다시 확인하세요.");
-				$('.pass2div').focus();
-				return false;
+	//아이디 중복체크
+    $('.idCheck').click(function(){
+    	//alert($("#user_id").val());
+		$.ajax({
+		url : "/member/idCheck",
+		type : "post",
+		dataType : "json",
+		data : {"user_id" : $("#user_id").val()},
+		success : function(data){
+			//alert(data);
+			if(data == 1){
+				$('#user_id2').val(1);
+				alert("중복된 아이디입니다.");
+			}else if(data == 0){
+				$('#user_id2').val(0);
+				$("#idCheck").attr("value", "Y");
+				alert("사용가능한 아이디입니다.");
 			}
-			if ($('.password2').val() == $('.password').val()) {
-				$('.pass2div').html("비밀번호가 일치합니다.");
-			}
-			if ($('.password2').val() == '') {
-				$('.pass2div').html("비밀번호를 입력하세요.");
-			}
-			if ($('#user_id2').val() == '1') {
-				alert('사용 불가능한 이메일입니다.');
-				return false;
-			}
-
-		}); 
-		
-		// 이메일 제어 
-		$('#join').submit(function() {
-			if ($('#user_id').val() == '') {
-				alert("이메일을 입력하세요.");
-				return false;
-			}
-
-		});
-		
-		//비밀번호 제어 
-		$('#join').submit(function() {
-			if ($('#user_pw').val() == '') {
-				alert("비밀번호를 확인하세요.");
-				return false;
-			}
-
-		});
-		
-		//비밀번호 재확인 제어 
-		$('#join').submit(function() {
-			if ($('#user_pw1').val() == '') {
-				alert("비밀번호를 재확인하세요.");
-				return false;
-			}
-
-		});
-
-		// 이름 제어
-		$('#join').submit(function() {
-			if ($('#user_name').val() == '') {
-				alert("이름을 입력하세요.");
-				return false;
-			}
-
-		});
-
-		// 휴대전화 제어 
-		$('#join').submit(function() {
-			if ($('#user_phone').val() == '') {
-				alert("전화번호를 입력하세요.");
-				return false;
-			}
-
-		});
-
-		//아이디 중복체크
-		$('.idCheck').click(function() {
-			//alert($("#user_id").val());
-			$.ajax({
-				url : "/member/idCheck",
-				type : "post",
-				dataType : "json",
-				data : {
-					"user_id" : $("#user_id").val()
-				},
-				success : function(data) {
-					//alert(data);
-					if (data == 1) {
-						$('#user_id2').val(1);
-						alert("사용 불가능한 이메일입니다.");
-					} else if (data == 0) {
-						$('#user_id2').val(0);
-						$("#idCheck").attr("value", "Y");
-						alert("사용 가능한 이메일입니다.");
-					}
-				}
-			});
-		});
-
+		}
 	});
+});
+	
+	
+}); 
 </script>
+    
+
 </head>
+
 <body>
-	<!-- 템플릿 헤더 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+    <!-- Preloader -->
+
+
+   	<!-- 템플릿 헤더 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 	<!-- 템플릿 헤더-->
 	<header class="header-area">
 
@@ -285,7 +224,7 @@
 		<div
 			class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
 			style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/24.jpg);">
-			<h2>Checkout</h2>
+			<h2>Member Update</h2>
 		</div>
 
 		<div class="container">
@@ -295,7 +234,7 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#"><i
 									class="fa fa-home"></i> Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Checkout</li>
+							<li class="breadcrumb-item active" aria-current="page">Member Update</li>
 						</ol>
 					</nav>
 				</div>
@@ -304,99 +243,120 @@
 	</div>
 	<!-- 템플릿 헤더 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
+    <!-- ##### Checkout Area Start ##### -->
+    <div class="checkout_area mb-100" style="width: 2500px; margin 0px auto;">
+        <div class="container">
+            <div class="row justify-content-between">
+                <!-- <div class="col-12 col-lg-7"> -->
+                    <div class="checkout_details_area clearfix">
+                        <h5>Member Details</h5>
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="first_name">Name *</label>
+                                    <input type="text" class="form-control" id="first_name" value="" required="">
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="last_name">Password to change *</label>
+                                    <input type="text" class="form-control" id="last_name" value="" required="">
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <label for="email_address">Phone Number *</label>
+                                    <input type="number" class="form-control" id="email_address" value="">
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <label for="phone_number">My Locations *</label>
+                                    <input type="number" class="form-control" id="phone_number" min="0" value="">
+                                </div>
+                                <!-- <div class="col-12 mb-4">
+                                    <label for="company">Company Name</label>
+                                    <input type="text" class="form-control" id="company" value="">
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <label for="company">Address *</label>
+                                    <input type="text" class="form-control" id="address" value="">
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="city">Town/City *</label>
+                                    <input type="text" class="form-control" id="city" value="">
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="state">State/Province *</label>
+                                    <input type="text" class="form-control" id="state" value="">
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="country">Country</label>
+                                    <select class="custom-select d-block w-100" id="country">
+                                        <option value="usa">United States</option>
+                                        <option value="uk">United Kingdom</option>
+                                        <option value="ger">Germany</option>
+                                        <option value="fra">France</option>
+                                        <option value="ind">India</option>
+                                        <option value="aus">Australia</option>
+                                        <option value="bra">Brazil</option>
+                                        <option value="cana">Canada</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="postcode">Postcode/Zip</label>
+                                    <input type="text" class="form-control" id="postcode" value="">
+                                </div>
+                                <div class="col-md-12 mb-4">
+                                    <label for="order-notes">Order Notes</label>
+                                    <textarea class="form-control" id="order-notes" cols="30" rows="10" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center">
+                                        Single Checkbox
+                                        <div class="custom-control custom-checkbox d-flex align-items-center mr-30">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                            <label class="custom-control-label" for="customCheck1">Ship to a different address?</label>
+                                        </div>
+                                        Single Checkbox
+                                        <div class="custom-control custom-checkbox d-flex align-items-center">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                            <label class="custom-control-label" for="customCheck2">Create an account?</label>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
-
-
-
-
-	<!-- ##### Checkout Area Start ##### -->
-	<div class="checkout_area mb-100">
-		<div class="container">
-			<div class="row justify-content-between">
-				<div class="col-12 col-lg-7">
-					<div class="checkout_details_area clearfix">
-						<h1>회원가입</h1>
-						<h2>Join</h2>
-						<br><br><br><br>
-						<form action="/member/insert" id="join" method="post">
-							<div class="row">
-								<div class="col-12 mb-4">
-									<label for="email_address">이메일(Email Address) *</label> 
-									<input type="text" name="user_id" class="form-control" id="user_id" value="" placeholder=" @를 포함해서 입력하세요.">
-									<input type="hidden" name="user_id2" id="user_id2"><br>
-									<button type="button" class="idCheck btn alazea-btn w-80" id="idCheck" value="N" style="width:50pt;height:30pt;">이메일 확인</button>
-									<input type="hidden" name="user_id2" id="user_id2" value="0">
-								</div>
-								
-								
-								
-								
-								<div class="col-12 mb-4">
-									<label for="email_address">비밀번호(Password) *</label> 
-									<input type="password" name="user_pw" class="password form-control" id="user_pw" value="" placeholder="비밀번호를 입력하세요.">
-									<div class="passdiv"></div>
-								</div>
-								<div class="col-12 mb-4">
-									<label for="email_address">비밀번호 재확인(Reconfirm Password) *</label> 
-									<input type="password" name="user_pw1" class="password2 form-control" id="user_pw1" value="" placeholder="비밀번호를 재입력하세요."><br>
-									<div class="pass2div"></div>
-								</div>
-								<div class="col-12 mb-4">
-									<label for="phone_number">이름(Name) *</label> 
-									<input type="text" name="user_name" class="form-control" id="user_name" value="" placeholder="이름을 입력하세요.">
-								</div>
-								<div class="col-12 mb-4">
-									<label for="phone_number">전화번호(Phone) *</label> 
-									<input type="text" name="user_phone" class="form-control" id="user_phone" value="" placeholder=" (-)제외후 입력하세요."><br>
-								</div>
-
-								<button class="btn alazea-btn w-120" style="width:360pt;height:40pt;margin:auto;">회원가입</button>
-								
-								</div>
-								
-
-                        
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<hr>
-
-
-
-
-		
-				
-			
-			
-
-			
-
-
-
-			
-
-
-			
-
-
-			
-
-
-			
-			<br>
-
-
-		</form>
-	</fieldset>
-
-
-
-
-
+               <!--  <div class="col-12 col-lg-4">
+                    <div class="checkout-content">
+                        <h5 class="title--">Your Order</h5>
+                        <div class="products">
+                            <div class="products-data">
+                                <h5>Products:</h5>
+                                <div class="single-products d-flex justify-content-between align-items-center">
+                                    <p>Recuerdos Plant</p>
+                                    <h5>$9.99</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="subtotal d-flex justify-content-between align-items-center">
+                            <h5>Subtotal</h5>
+                            <h5>$9.99</h5>
+                        </div>
+                        <div class="shipping d-flex justify-content-between align-items-center">
+                            <h5>Shipping</h5>
+                            <h5>$3.00</h5>
+                        </div>
+                        <div class="order-total d-flex justify-content-between align-items-center">
+                            <h5>Order Total</h5>
+                            <h5>$12.99</h5>
+                        </div>
+                        <div class="checkout-btn mt-30">
+                            <a href="#" class="btn alazea-btn w-100">Place Order</a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- ##### Checkout Area End ##### -->
 
 	<!-- 템플릿푸터@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 	<footer class="footer-area bg-img"
@@ -558,86 +518,6 @@
 		</div>
 	</footer>
 	<!-- 템플릿푸터@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-=======
-<title>Insert title here</title>
-<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript"> </script>
-<script> 
-$(document).ready(function () {
-
-    $('#join').submit(function(){
-        //alert("알럿!");
-       if ($('.password2').val()!=$('.password').val()) {
-                $('.pass2div').html("비밀번호가 다릅니다. 확인하고 다시 작성해주세요 ❤❤");
-                $('.pass2div').focus();
-                return false;
-            }
-       if($('#user_id2').val()=='1') {
-	         alert('아이디 중복');
-	         return false; 
-	      } 
-       
-       
-       
-    });
-
-    
-	
-
-	//아이디 중복체크
-    $('.idCheck').click(function(){
-    	//alert($("#user_id").val());
-		$.ajax({
-		url : "/member/idCheck",
-		type : "post",
-		dataType : "json",
-		data : {"user_id" : $("#user_id").val()},
-		success : function(data){
-			//alert(data);
-			if(data == 1){
-				$('#user_id2').val(1);
-				alert("중복된 아이디입니다.");
-			}else if(data == 0){
-				$('#user_id2').val(0);
-				$("#idCheck").attr("value", "Y");
-				alert("사용가능한 아이디입니다.");
-			}
-		}
-	});
-});
-	
-	
-}); 
 
 
-
-
-
-
-
-</script>
-</head>
-<body>
-	<h1>회원가입</h1>
-	<fieldset>
-	<legend>회원가입 </legend>
-	<form action="/member/insert" id="join" method="post">
-		이메일 : <input type="text" name="user_id" id="user_id" class="user_id" placeholder=" @를 포함해서 입력해주세요.">
-		<button class="idCheck" type="button" id="idCheck"  value="N" >중복체크</button> <br>
-		<input type="hidden" name="user_id2" id="user_id2" value="0">
-		비밀번호 : <input type="password" name="user_pw" class="password" placeholder="비밀번호를 입력하세요."><br>
-		<div class="passdiv"> </div> <br> 
-		비밀번호 확인 : <input type="password" name="user_pw1" class="password2" placeholder="비밀번호를 재입력하세요."><br>
-		<div class="pass2div"> </div> <br> 
-		이름 : <input type="text" name="user_name" placeholder="이름을 입력하세요."><br>
-		휴대번호 : <input type="text" name="user_phone" placeholder=" (-)제외후 입력해주세요."><br>
-	<input type="submit" value="회원가입">	
-		
-		
-		
-	</form>
-	</fieldset>
-	
-
-</body>
-</html>
+</body></html>

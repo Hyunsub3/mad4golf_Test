@@ -75,9 +75,14 @@ public class ProductController {
 //		return "redirect:/board/listAll";
 		return "redirect:/board/listPage";
 	}
-	
-	
-	// http://localhost:8080/product/listAll
+
+	//http://localhost:8080/board/listAll
+	// 게시판 리스트 - 조회 (GET)
+	@RequestMapping(value = "/listAll",method = RequestMethod.GET)
+	public String listALLGET(ProductVO vo,Model model,HttpSession session) throws Exception {
+		log.info("listALLGET() 호출 ");
+
+// http://localhost:8080/product/listAll
 	// 상품 리스트 - 조회 (GET)
 	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
 	public String listAllGET(ProductVO vo, Model model, HttpSession session) throws Exception {
@@ -89,18 +94,50 @@ public class ProductController {
 		
 		// 연결된 view 페이지로 정보 전달
 		// model.addAttribute("category", vo.getCategory());
-		
+
 		// 서비스 - 글전체 목록 가져오는 메서드
-		List<ProductVO> productList = service.getProductListAll(vo);
+		List<ProductVO> ProductList = service.getProductListAll(vo);
 		
-		model.addAttribute("productList", productList);
-		log.info("상품 : " + productList);
+		model.addAttribute("ProductList", ProductList);
 		
 		// 세션객체 - isUpdate 정보전달
 		session.setAttribute("isUpdate", false);
 		
-		return "/product/shop";
+		log.info("/Product/shop -> /product/shop.jsp ");
+		
+		return"/product/shop";
 	}
+	
+	//상품 페이징 리스트(GET) : 페이징처리 완료된 페이지 호출
+	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
+	public String listPageGET(PageVO vo,Model model) throws Exception{
+		log.info("Controller: listPageGET()호출");
+		log.info("vo :"+vo);
+		
+		/*
+		 * //PageVO 객체 생성
+		 */		/*
+		 * PageVO vo = new PageVO(); 
+		 * vo.setPage(2); //2페이지에 해당하는 글을
+		 * vo.setPerPageNum(30); //30개씩 표시
+		 */		
+		//View페이지로 vo(글의 정보 : Service -> DAO -> mapper과정으로 담아온 데이터를 View로 보내줌) 
+		model.addAttribute("ProductList",service.listPage(vo));
+		
+		//페이징 처리 하단부 정보 저장   
+		PageMakerVO pm = new PageMakerVO();
+		pm.setVo(vo); //페이징 처리 하단부 정보를 vo에 받아오고 
+		pm.setTotalCnt(512); //calData() 페이징처리에 필요한 계산식 계산 메서드가 포함된 전체 글 갯수 초기화 메서드 호출 
+		
+		log.info("pm"+pm);
+		log.info("vo"+vo);
+		
+		//model객체에 담아서 view페이지로 페이징 처리 정보 전달 
+		model.addAttribute("pm",pm);
+		
+		return"/product/shop";
+	}
+	//상품 페이징 리스트(GET) : 페이징처리 완료된 페이지 호출
 	
 	// 상품등록 페이지  - 이동 (GET)
 	@RequestMapping(value = "/productInsert", method = RequestMethod.GET)
@@ -213,29 +250,7 @@ public class ProductController {
 		return "redirect:/board/listPage";
 	}
 	
-	// http://localhost:8080/board/listPage
-		// http://localhost:8080/board/listPage?page=2
-		// http://localhost:8080/board/listPage?perPageNum=50
-		// http://localhost:8080/board/listPage?page=3&perPageNum=20
-		// 게시판 리스트(페이징처리) - GET
-		@RequestMapping(value = "/listPage",method = RequestMethod.GET)
-		public String listPageGET(PageVO vo,Model model) throws Exception{
-			log.info(" listPageGET() ");
-//			PageVO vo = new PageVO();
-//			vo.setPage(2);
-//			vo.setPerPageNum(30);
-			
-			model.addAttribute("boardList", service.listPage(vo));
-			
-			// 페이징 처리 하단부 정보 저장
-			PageMakerVO pm = new PageMakerVO();
-			pm.setVo(vo);
-			pm.setTotalCnt(1251); // 글 개수
-			
-			model.addAttribute("pm", pm);
-			
-			return "/board/listAll";
-		}
+
 	
 		
 		

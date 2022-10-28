@@ -106,9 +106,9 @@
                                     <li><a href="about.html">About</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href="${pageContext.request.contextPath }/product/listAll?category=Driver">Driver</a></li>
-                                            <li><a href="${pageContext.request.contextPath }/product/listAll?category=Iron&gender=2">Iron</a></li>
-                                            <li><a href="${pageContext.request.contextPath }/product/listAll?category=Util">Util</a>
+                                            <li><a href="${pageContext.request.contextPath }/product/listPage?category=Driver">Driver</a></li>
+                                            <li><a href="${pageContext.request.contextPath }/product/listPage?category=Iron">Iron</a></li>
+                                            <li><a href="${pageContext.request.contextPath }/product/listPage?category=Util">Util</a>
                                               <!--   <ul class="dropdown">
                                                     <li><a href="shop.html">Shop</a></li>
                                                     <li><a href="shop-details.html">Shop Details</a></li>
@@ -116,19 +116,19 @@
                                                     <li><a href="checkout.html">Checkout</a></li>
                                                 </ul> -->
                                             </li>
-                                            <li><a href="${pageContext.request.contextPath }/product/listAll?category=Wedge">Wedge</a>
+                                            <li><a href="${pageContext.request.contextPath }/product/listPage?category=Wedge">Wedge</a>
                                            <!--      <ul class="dropdown">
                                                     <li><a href="portfolio.html">Portfolio</a></li>
                                                     <li><a href="single-portfolio.html">Portfolio Details</a></li>
                                                 </ul> -->
                                             </li>
-                                            <li><a href="${pageContext.request.contextPath }/product/listAll?category=Putter">Putter</a>
+                                            <li><a href="${pageContext.request.contextPath }/product/listPage?category=Putter">Putter</a>
                                             <!--     <ul class="dropdown">
                                                     <li><a href="blog.html">Blog</a></li>
                                                     <li><a href="single-post.html">Blog Details</a></li>
                                                 </ul> -->
                                             </li>
-                                            <li><a href="${pageContext.request.contextPath }/product/listAll?category=Etc">Etc</a></li>
+                                            <li><a href="${pageContext.request.contextPath }/product/listPage?category=Etc">Etc</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="shop.html">Shop</a></li>

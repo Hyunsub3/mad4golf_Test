@@ -73,7 +73,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<BoardVO> listPage(PageVO vo) throws Exception {
+	public List<ProductVO> listPage(PageVO vo) throws Exception {
 		log.info(" listPage(PageVO vo) ");
 		return dao.listPage(vo);
 	}

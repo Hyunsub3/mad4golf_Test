@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <!-- JSTL사용  -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +20,39 @@
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/style.css">
+  
+        <style>
+                #topMenu {           
+                        height: 30px; 
+                        width: 1100px; 
+                        border: solid 6px green;
+                }
+                #topMenu .women{
+                	margin-bottom: 0px;
+                }
+                #topMenu ul li {                    
+                        list-style: none;          
+                        color: white;              
+                        background-color: #2d2d2d;  
+                        float: left;               
+                        line-height: 30px;          
+                        vertical-align: middle;     
+                        text-align: center;         
+                }
+                #topMenu .menuLink {                             
+                        text-decoration:none;                    
+                        color: white;                           
+                        display: block;                           
+                        width: 150px;                             
+                        font-size: 12px;                           
+                        font-weight: bold;                         
+                        font-family: "Trebuchet MS", Dotum, Arial; 
+                }
+                #topMenu .menuLink:hover {            
+                        color: red;                  
+                        background-color: #4d4d4d;    
+                }
+        </style>
 
 </head>
 
@@ -180,29 +215,118 @@
             </div>
         </div>
     </div>
-    <!-- ##### Breadcrumb Area End ##### -->
+	<!-- ##### Breadcrumb Area End ##### -->
+	
+	<!-- 남성용/여성용 성별 구분 상품 카테고리   -->
 
-    <!-- ##### Shop Area Start ##### -->
-    <section class="shop-page section-padding-0-100">
+	
+	<div style="border:solid 3px red; text-align: center; margin: auto;">
+	        <nav id="topMenu" style="border: solid 4px blue; margin: auto;">
+                <ul>
+						<!-- 남성용  -->
+                        <li><a class="menuLink">남성용</a></li>
+                        <li><a class="menuLink" href="${pageContext.request.contextPath }/product/listAll?category=Driver&gender=1">Driver</a></li>
+                        <li><a class="menuLink" href="${pageContext.request.contextPath }/product/listAll?category=Driver&gender=1">Iron</a></li>
+                        <li><a class="menuLink" href="${pageContext.request.contextPath }/product/listAll?category=Driver&gender=1">Util</a></li>
+                        <li><a class="menuLink" href="${pageContext.request.contextPath }/product/listAll?category=Driver&gender=1">Wedge</a></li>
+                        <li><a class="menuLink" href="${pageContext.request.contextPath }/product/listAll?category=Driver&gender=1">Putter</a></li>
+                        <li><a class="menuLink" href="${pageContext.request.contextPath }/product/listAll?category=Driver&gender=1">Etc</a></li>
+               
+               			<!-- 여성용 -->
+               			<li><a class="menuLink">여성용</a></li>
+                        <li><a class="menuLink" href="${pageContext.request.contextPath }/product/listAll?category=Driver&gender=2">Driver</a></li>
+                        <li><a class="menuLink" href="${pageContext.request.contextPath }/product/listAll?category=Driver&gender=2">Iron</a></li>
+                        <li><a class="menuLink" href="${pageContext.request.contextPath }/product/listAll?category=Driver&gender=2">Util</a></li>
+                        <li><a class="menuLink" href="${pageContext.request.contextPath }/product/listAll?category=Driver&gender=2">Wedge</a></li>
+                        <li><a class="menuLink" href="${pageContext.request.contextPath }/product/listAll?category=Driver&gender=2">Putter</a></li>
+                        <li><a class="menuLink" href="${pageContext.request.contextPath }/product/listAll?category=Driver&gender=2">Etc</a></li>
+               
+               
+               
+                </ul>
+        	</nav>
+
+    	</div>
+
+<%-- 	
+	<tr>
+		<td>남성용</td>
+		<td><a
+			href="${pageContext.request.contextPath }/product/listAll?category=Driver&gender=1">Driver</a></td>
+		<td><a
+			href="${pageContext.request.contextPath }/product/listAll?category=Iron&gender=1">Iron</a></td>
+		<td><a
+			href="${pageContext.request.contextPath }/product/listAll?category=Util&gender=1">Util</a></td>
+		<td><a
+			href="${pageContext.request.contextPath }/product/listAll?category=Wedge&gender=1">Wedge</a></td>
+		<td><a
+			href="${pageContext.request.contextPath }/product/listAll?category=Putter&gender=1">Putter</a></td>
+		<td><a
+			href="${pageContext.request.contextPath }/product/listAll?category=Etc&gender=1">Etc</a></td>
+	</tr>
+	<br> --%>
+<%-- 	<!-- 남성용  -->
+
+	<!-- 여성용 -->
+	<tr>
+		<td>남성용</td>
+		<td><a
+			href="${pageContext.request.contextPath }/product/listAll?category=Driver&gender=2">Driver</a></td>
+		<td><a
+			href="${pageContext.request.contextPath }/product/listAll?category=Iron&gender=2">Iron</a></td>
+		<td><a
+			href="${pageContext.request.contextPath }/product/listAll?category=Util&gender=2">Util</a></td>
+		<td><a
+			href="${pageContext.request.contextPath }/product/listAll?category=Wedge&gender=2">Wedge</a></td>
+		<td><a
+			href="${pageContext.request.contextPath }/product/listAll?category=Putter&gender=2">Putter</a></td>
+		<td><a
+			href="${pageContext.request.contextPath }/product/listAll?category=Etc&gender=2">Etc</a></td>
+	</tr>
+	<!-- 여성용 --> --%>
+	
+	<!-- 남성용/여성용 성별 구분 상품 카테고리   -->
+	
+	<!-- ##### Shop Area Start ##### -->
+	<section class="shop-page section-padding-0-100">
         <div class="container">
             <div class="row">
                 <!-- Shop Sorting Data -->
                 <div class="col-12">
-                    <div class="shop-sorting-data d-flex flex-wrap align-items-center justify-content-between">
-                        <!-- Shop Page Count -->
+<!--                     <div class="shop-sorting-data d-flex flex-wrap align-items-center justify-content-between"
+                    style="border: solid 5px red;">
+                        Shop Page Count
                         <div class="shop-page-count">
                             <p>Showing 1–9 of 72 results</p>
                         </div>
+                        </div> -->
+                 
                         <!-- Search by Terms -->
+                        
+                        
                         <div class="search_by_terms">
+
+								<!-- <select class="custom-select widget-title">
+
                             <form action="#" method="post" class="form-inline">
 								<input type="button" class="btn alazea-btn w-10" style="width: 100px;" value="상품등록" onclick="location.href='${pageContext.request.contextPath }/product/productInsert'">
                                 <select class="custom-select widget-title">
+
                                   <option selected>Short by Popularity</option>
                                   <option value="1">Short by Newest</option>
                                   <option value="2">Short by Sales</option>
                                   <option value="3">Short by Ratings</option>
-                                </select>
+                                </select> -->
+                                
+                        <div style="border: solid 6px yellow;"><!-- 상품 올리기 div  -->
+						<form role="form" action="/product/regist" method="get">
+
+							<button type="submit" class="btn btn-primary" s>상품올리기</button>
+						</form>
+						</div>
+						
+						<div style="border: solid 5px black;"> <!-- 인기순,최신순 선택바 div  -->
+						<form action="#" method="post" class="form-inline">
                                 <select class="custom-select widget-title">
                                   <option selected>Show: 9</option>
                                   <option value="1">12</option>
@@ -210,7 +334,10 @@
                                   <option value="3">24</option>
                                 </select>
                             </form>
+                        </div>    
+                        
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -372,6 +499,44 @@
                     <div class="shop-products-area">
                         <div class="row">
 
+
+							<!-- Single Product Area -->
+							<!-- for문으로 상품 리스트 반복  -->
+
+							<c:forEach var="vo" items="${productList }">
+								<div class="col-12 col-sm-6 col-lg-4">
+									<div class="single-product-area mb-50">
+										<!-- Product Image -->
+										<div class="product-img">
+											<a href="${pageContext.request.contextPath }/product/상세페이지">
+											<img src="${pageContext.request.contextPath }/product/${vo.prod_img}"></a>
+												<!-- img태그에 DB이미지 삽입 이렇게 경로 설정 맞나..?   -->
+												<!-- 상품이미지는 productVO에 있음... listAll: pageVO전달, listPage:PageVo전달 우째야할까..? -->
+											<!-- Product Tag -->
+											<div class="product-tag">
+												<a href="#">Hot</a>
+											</div>
+											<div class="product-meta d-flex">
+												<a href="#" class="wishlist-btn"><i
+													class="icon_heart_alt"></i></a> <a href="cart.html"
+													class="add-to-cart-btn">Add to cart</a> <a href="#"
+													class="compare-btn"><i class="arrow_left-right_alt"></i></a>
+											</div>
+										</div>
+										<!-- Product Info -->
+										<div class="product-info mt-15 text-center">
+											<a href="shop-details.html">
+												<p>${vo.prod_name }</p>
+											</a>
+											<h6>${vo.price }</h6>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+							<!-- for문으로 상품 리스트 반복  -->
+<%-- 
+							<!-- Single Product Area -->
+
                             <!-- Single Product Area -->
                             <div class="col-12 col-sm-6 col-lg-4">
                                 <div class="single-product-area mb-50">
@@ -399,6 +564,7 @@
                             </div>
 
                             <!-- Single Product Area -->
+
                             <div class="col-12 col-sm-6 col-lg-4">
                                 <div class="single-product-area mb-50">
                                     <!-- Product Image -->
@@ -578,19 +744,41 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Pagination -->
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
-                            </ul>
-                        </nav>
+ --%>	
                     </div>
+        </div>
+<!--===========================페이징 네비바 =====================================================================================  -->
+					<div class="shop-products-area">
+						<!-- Pagination -->
+						<nav aria-label="Page navigation">
+
+
+							<ul class="pagination" style="text-align: center; width: 100%;">
+								<c:if test="${pm.prev }">
+									<!-- ${pm.prev }결과가 참(true)일 때 -->
+									<li class="page-item"><a
+										href="listPage?page=${pm.startPage-1 }">&laquo;이전</a></li>
+									<!-- 현재 위치한 페이지 블럭의 첫번째 페이지보다 -1인 페이지로 이동  -->
+								</c:if>
+
+								<c:forEach var="idx" begin="${pm.startPage }"
+									end="${pm.endPage }">
+									<li class="page-item"><a class="page-link"
+										href="listPage?page=1">${pm.vo.page }</a></li>
+								</c:forEach>
+
+								<c:if test="${pm.next }">
+									<!-- ${pm.next }결과가 참(true)일 때  -->
+									<li class="page-item"><a
+										href="listPage?page= ${pm.endPage+1 }">다음&raquo;</a></li>
+									<!-- 현재 위치한 페이징 블럭의 마지막 페이지보다 +1인 페이지로 이동  -->
+								</c:if>
+							</ul>
+						</nav>
+					</div>
+<!--===========================페이징 네비바 =====================================================================================  -->
                 </div>
             </div>
-        </div>
     </section>
     <!-- ##### Shop Area End ##### -->
 

@@ -36,7 +36,7 @@ public class BoardDAOTest {
 		// DAOImpl - listPage()호출
 		try {
 			for(BoardVO vo :dao.listPage(5)) {
-				log.info(vo.getBno()+":"+vo.getTitle());
+				log.info(vo.getBoard_num()+":"+vo.getTitle());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

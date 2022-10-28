@@ -57,8 +57,6 @@
 </head>
 
 <body>
-${productList }
-${productList[0].prod_name }
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-circle"></div>
@@ -200,7 +198,7 @@ ${productList[0].prod_name }
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
         <!-- Top Breadcrumb Area -->
-        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(img/bg-img/24.jpg);">
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/24.jpg);">
             <h2>Shop</h2>
         </div>
 
@@ -307,7 +305,13 @@ ${productList[0].prod_name }
                         
                         
                         <div class="search_by_terms">
+
 								<!-- <select class="custom-select widget-title">
+
+                            <form action="#" method="post" class="form-inline">
+								<input type="button" class="btn alazea-btn w-10" style="width: 100px;" value="상품등록" onclick="location.href='${pageContext.request.contextPath }/product/productInsert'">
+                                <select class="custom-select widget-title">
+
                                   <option selected>Short by Popularity</option>
                                   <option value="1">Short by Newest</option>
                                   <option value="2">Short by Sales</option>
@@ -337,6 +341,7 @@ ${productList[0].prod_name }
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <!-- Sidebar Area -->
 <!--                 <div class="col-12 col-md-4 col-lg-3"> -->
@@ -489,11 +494,11 @@ ${productList[0].prod_name }
 <!--                         </div> -->
 <!--                     </div> -->
 <!--                 </div> -->
-
                 <!-- All Products Area -->
                 <div class="col-12 col-md-8 col-lg-9">
                     <div class="shop-products-area">
                         <div class="row">
+
 
 							<!-- Single Product Area -->
 							<!-- for문으로 상품 리스트 반복  -->
@@ -531,6 +536,35 @@ ${productList[0].prod_name }
 							<!-- for문으로 상품 리스트 반복  -->
 <%-- 
 							<!-- Single Product Area -->
+
+                            <!-- Single Product Area -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="single-product-area mb-50">
+                                    <!-- Product Image -->
+                                    <div class="product-img">
+                                        <a href="shop-details.html"><img src="${pageContext.request.contextPath }/resources/product_img/driver1.png" alt=""></a>
+                                        <!-- Product Tag -->
+                                        <div class="product-tag">
+                                            <a href="#">Hot</a>
+                                        </div>
+                                        <div class="product-meta d-flex">
+                                            <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
+                                            <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
+                                            <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
+                                        </div>
+                                    </div>
+                                    <!-- Product Info -->
+                                    <div class="product-info mt-15 text-center">
+                                        <a href="shop-details.html">
+                                            <p>${productList[0].prod_name }</p>
+                                        </a>
+                                        <h6>${productList[0].price }원</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Product Area -->
+
                             <div class="col-12 col-sm-6 col-lg-4">
                                 <div class="single-product-area mb-50">
                                     <!-- Product Image -->

@@ -8,11 +8,11 @@ import com.itwillbs.domain.ProductVO;
 
 public interface ProductDAO {
 	
-	// 글쓰기 - insertBoard(vo)
-	public void insertBoard(BoardVO vo) throws Exception;
-	
 	// 상품 전체 목록 - listAll() 
 	public List<ProductVO> listAll(ProductVO vo) throws Exception;
+	
+	// 상품 등록 - insertProduct(vo)
+	public void insertProduct(ProductVO vo) throws Exception;
 	
 	// 글 1개 정보 가져오기 - getBoard(int)
 	public BoardVO getBoard(Integer bno) throws Exception;

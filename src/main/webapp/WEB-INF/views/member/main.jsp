@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
+ <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,12 +22,12 @@
 
 <body>
     <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-circle"></div>
-        <div class="preloader-img">
-            <img src="${pageContext.request.contextPath }/resources/img/core-img/leaf.png" alt="">
-        </div>
-    </div>
+<!--     <div class="preloader d-flex align-items-center justify-content-center"> -->
+<!--         <div class="preloader-circle"></div> -->
+<!--         <div class="preloader-img"> -->
+<!--             <img src="img/core-img/leaf.png" alt=""> -->
+<!--         </div> -->
+<!--     </div> -->
 
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
@@ -47,23 +46,9 @@
 
                             <!-- Top Header Content -->
                             <div class="top-header-meta d-flex">
-                                <!-- Language Dropdown -->
-                                <div class="language-dropdown">
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle mr-30" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language</button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">USA</a>
-                                            <a class="dropdown-item" href="#">UK</a>
-                                            <a class="dropdown-item" href="#">Bangla</a>
-                                            <a class="dropdown-item" href="#">Hindi</a>
-                                            <a class="dropdown-item" href="#">Spanish</a>
-                                            <a class="dropdown-item" href="#">Latin</a>
-                                        </div>
-                                    </div>
-                                </div>
                                 <!-- Login -->
                                 <div class="login">
-                                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i> <span>Login</span></a>
+                                    <a href="${pageContext.request.contextPath }/member/login"><i class="fa fa-user" aria-hidden="true"></i> <span>Login</span></a>
                                 </div>
                                 <!-- Cart -->
                                 <div class="cart">
@@ -84,7 +69,7 @@
                     <nav class="classy-navbar justify-content-between" id="alazeaNav">
 
                         <!-- Nav Brand -->
-                        <a href="index.html" class="nav-brand"><img src="${pageContext.request.contextPath }/resources/img/core-img/logo.png" alt=""></a>
+                        <a href="${pageContext.request.contextPath }/resources/index.html" class="nav-brand"><img src="${pageContext.request.contextPath }/resources/img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -102,38 +87,38 @@
                             <!-- Navbar Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="${pageContext.request.contextPath }/resources/index.html">Home</a></li>
+                                    <li><a href="${pageContext.request.contextPath }/resources/about.html">About</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href="${pageContext.request.contextPath }/product/listPage?category=Driver">Driver</a></li>
-                                            <li><a href="${pageContext.request.contextPath }/product/listPage?category=Iron">Iron</a></li>
-                                            <li><a href="${pageContext.request.contextPath }/product/listPage?category=Util">Util</a>
-                                              <!--   <ul class="dropdown">
-                                                    <li><a href="shop.html">Shop</a></li>
-                                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                </ul> -->
+                                            <li><a href="${pageContext.request.contextPath }/resources/index.html">Home</a></li>
+                                            <li><a href="${pageContext.request.contextPath }/resources/about.html">About</a></li>
+                                            <li><a href="${pageContext.request.contextPath }/resources/shop.html">Shop</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="${pageContext.request.contextPath }/resources/shop.html">Shop</a></li>
+                                                    <li><a href="${pageContext.request.contextPath }/resources/shop-details.html">Shop Details</a></li>
+                                                    <li><a href="${pageContext.request.contextPath }/resources/cart.html">Shopping Cart</a></li>
+                                                    <li><a href="${pageContext.request.contextPath }/resources/checkout.html">Checkout</a></li>
+                                                </ul>
                                             </li>
-                                            <li><a href="${pageContext.request.contextPath }/product/listPage?category=Wedge">Wedge</a>
-                                           <!--      <ul class="dropdown">
-                                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                                    <li><a href="single-portfolio.html">Portfolio Details</a></li>
-                                                </ul> -->
+                                            <li><a href="portfolio.html">Portfolio</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="${pageContext.request.contextPath }/resources/portfolio.html">Portfolio</a></li>
+                                                    <li><a href="${pageContext.request.contextPath }/resources/single-portfolio.html">Portfolio Details</a></li>
+                                                </ul>
                                             </li>
-                                            <li><a href="${pageContext.request.contextPath }/product/listPage?category=Putter">Putter</a>
-                                            <!--     <ul class="dropdown">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-post.html">Blog Details</a></li>
-                                                </ul> -->
+                                            <li><a href="${pageContext.request.contextPath }/resources/blog.html">Blog</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="${pageContext.request.contextPath }/resources/blog.html">Blog</a></li>
+                                                    <li><a href="${pageContext.request.contextPath }/resources/single-post.html">Blog Details</a></li>
+                                                </ul>
                                             </li>
-                                            <li><a href="${pageContext.request.contextPath }/product/listPage?category=Etc">Etc</a></li>
+                                            <li><a href="${pageContext.request.contextPath }/resources/contact.html">Contact</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="${pageContext.request.contextPath }/resources/shop.html">Shop</a></li>
+                                    <li><a href="${pageContext.request.contextPath }/resources/portfolio.html">Portfolio</a></li>
+                                    <li><a href="${pageContext.request.contextPath }/resources/contact.html">Contact</a></li>
                                 </ul>
 
                                 <!-- Search Icon -->
@@ -168,7 +153,7 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post bg-overlay">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/1.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(img/bg-img/1.jpg);"></div>
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
@@ -189,7 +174,7 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post bg-overlay">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/2.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(img/bg-img/2.jpg);"></div>
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
@@ -431,7 +416,7 @@
                 <!-- Single Portfolio Area -->
                 <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item design home-design wow fadeInUp" data-wow-delay="100ms">
                     <!-- Portfolio Thumbnail -->
-                    <div class="portfolio-thumbnail bg-img" style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/16.jpg);"></div>
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/16.jpg);"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
                         <a href="${pageContext.request.contextPath }/resources/img/bg-img/16.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 1">
@@ -446,7 +431,7 @@
                 <!-- Single Portfolio Area -->
                 <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden wow fadeInUp" data-wow-delay="200ms">
                     <!-- Portfolio Thumbnail -->
-                    <div class="portfolio-thumbnail bg-img" style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/17.jpg);"></div>
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/17.jpg);"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
                         <a href="${pageContext.request.contextPath }/resources/img/bg-img/17.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 2">
@@ -461,7 +446,7 @@
                 <!-- Single Portfolio Area -->
                 <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden design wow fadeInUp" data-wow-delay="300ms">
                     <!-- Portfolio Thumbnail -->
-                    <div class="portfolio-thumbnail bg-img" style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/18.jpg);"></div>
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/18.jpg);"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
                         <a href="${pageContext.request.contextPath }/resources/img/bg-img/18.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 3">
@@ -476,7 +461,7 @@
                 <!-- Single Portfolio Area -->
                 <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden office-design wow fadeInUp" data-wow-delay="400ms">
                     <!-- Portfolio Thumbnail -->
-                    <div class="portfolio-thumbnail bg-img" style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/19.jpg);"></div>
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/19.jpg);"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
                         <a href="${pageContext.request.contextPath }/resources/img/bg-img/19.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 4">
@@ -491,7 +476,7 @@
                 <!-- Single Portfolio Area -->
                 <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item design office-design wow fadeInUp" data-wow-delay="100ms">
                     <!-- Portfolio Thumbnail -->
-                    <div class="portfolio-thumbnail bg-img" style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/20.jpg);"></div>
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/20.jpg);"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
                         <a href="${pageContext.request.contextPath }/resources/img/bg-img/20.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 5">
@@ -506,7 +491,7 @@
                 <!-- Single Portfolio Area -->
                 <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden wow fadeInUp" data-wow-delay="200ms">
                     <!-- Portfolio Thumbnail -->
-                    <div class="portfolio-thumbnail bg-img" style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/21.jpg);"></div>
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/21.jpg);"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
                         <a href="${pageContext.request.contextPath }/resources/img/bg-img/21.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 6">
@@ -521,7 +506,7 @@
                 <!-- Single Portfolio Area -->
                 <div class="col-12 col-lg-6 single_portfolio_item home-design wow fadeInUp" data-wow-delay="300ms">
                     <!-- Portfolio Thumbnail -->
-                    <div class="portfolio-thumbnail bg-img" style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/22.jpg);"></div>
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/22.jpg);"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
                         <a href="${pageContext.request.contextPath }/resources/img/bg-img/22.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 7">
@@ -647,20 +632,20 @@
                     <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="100ms">
                         <!-- Product Image -->
                         <div class="product-img">
-                            <a href="shop-details.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/9.jpg" alt=""></a>
+                            <a href="${pageContext.request.contextPath }/resources/shop-details.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/9.jpg" alt=""></a>
                             <!-- Product Tag -->
                             <div class="product-tag">
                                 <a href="#">Hot</a>
                             </div>
                             <div class="product-meta d-flex">
                                 <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
+                                <a href="${pageContext.request.contextPath }/resources/cart.html" class="add-to-cart-btn">Add to cart</a>
                                 <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
                             </div>
                         </div>
                         <!-- Product Info -->
                         <div class="product-info mt-15 text-center">
-                            <a href="shop-details.html">
+                            <a href="${pageContext.request.contextPath }/resources/shop-details.html">
                                 <p>Cactus Flower</p>
                             </a>
                             <h6>$10.99</h6>
@@ -673,16 +658,16 @@
                     <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="200ms">
                         <!-- Product Image -->
                         <div class="product-img">
-                            <a href="shop-details.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/10.jpg" alt=""></a>
+                            <a href="${pageContext.request.contextPath }/resources/shop-details.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/10.jpg" alt=""></a>
                             <div class="product-meta d-flex">
                                 <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
+                                <a href="${pageContext.request.contextPath }/resources/cart.html" class="add-to-cart-btn">Add to cart</a>
                                 <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
                             </div>
                         </div>
                         <!-- Product Info -->
                         <div class="product-info mt-15 text-center">
-                            <a href="shop-details.html">
+                            <a href="${pageContext.request.contextPath }/resources/shop-details.html">
                                 <p>Cactus Flower</p>
                             </a>
                             <h6>$10.99</h6>
@@ -695,16 +680,16 @@
                     <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="300ms">
                         <!-- Product Image -->
                         <div class="product-img">
-                            <a href="shop-details.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/11.jpg" alt=""></a>
+                            <a href="${pageContext.request.contextPath }/resources/shop-details.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/11.jpg" alt=""></a>
                             <div class="product-meta d-flex">
                                 <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
+                                <a href="${pageContext.request.contextPath }/resources/cart.html" class="add-to-cart-btn">Add to cart</a>
                                 <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
                             </div>
                         </div>
                         <!-- Product Info -->
                         <div class="product-info mt-15 text-center">
-                            <a href="shop-details.html">
+                            <a href="${pageContext.request.contextPath }/resources/shop-details.html">
                                 <p>Cactus Flower</p>
                             </a>
                             <h6>$10.99</h6>
@@ -717,20 +702,20 @@
                     <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="400ms">
                         <!-- Product Image -->
                         <div class="product-img">
-                            <a href="shop-details.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/12.jpg" alt=""></a>
+                            <a href="${pageContext.request.contextPath }/resources/shop-details.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/12.jpg" alt=""></a>
                             <!-- Product Tag -->
                             <div class="product-tag sale-tag">
                                 <a href="#">Hot</a>
                             </div>
                             <div class="product-meta d-flex">
                                 <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
+                                <a href="${pageContext.request.contextPath }/resources/cart.html" class="add-to-cart-btn">Add to cart</a>
                                 <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
                             </div>
                         </div>
                         <!-- Product Info -->
                         <div class="product-info mt-15 text-center">
-                            <a href="shop-details.html">
+                            <a href="${pageContext.request.contextPath }/resources/shop-details.html">
                                 <p>Cactus Flower</p>
                             </a>
                             <h6>$10.99</h6>
@@ -766,10 +751,10 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-blog-post mb-100">
                         <div class="post-thumbnail mb-30">
-                            <a href="single-post.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/6.jpg" alt=""></a>
+                            <a href="${pageContext.request.contextPath }/resources/single-post.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/6.jpg" alt=""></a>
                         </div>
                         <div class="post-content">
-                            <a href="single-post.html" class="post-title">
+                            <a href="${pageContext.request.contextPath }/resources/single-post.html" class="post-title">
                                 <h5>Garden designers across the country forecast ideas shaping the gardening world in 2018</h5>
                             </a>
                             <div class="post-meta">
@@ -785,10 +770,10 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-blog-post mb-100">
                         <div class="post-thumbnail mb-30">
-                            <a href="single-post.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/7.jpg" alt=""></a>
+                            <a href="${pageContext.request.contextPath }/resources/single-post.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/7.jpg" alt=""></a>
                         </div>
                         <div class="post-content">
-                            <a href="single-post.html" class="post-title">
+                            <a href="${pageContext.request.contextPath }/resources/single-post.html" class="post-title">
                                 <h5>2018 Midwest Tree and Shrub Conference: Resilient Plants for a Lasting Landscape</h5>
                             </a>
                             <div class="post-meta">
@@ -804,10 +789,10 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-blog-post mb-100">
                         <div class="post-thumbnail mb-30">
-                            <a href="single-post.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/8.jpg" alt=""></a>
+                            <a href="${pageContext.request.contextPath }/resources/single-post.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/8.jpg" alt=""></a>
                         </div>
                         <div class="post-content">
-                            <a href="single-post.html" class="post-title">
+                            <a href="${pageContext.request.contextPath }/resources/single-post.html" class="post-title">
                                 <h5>The summer coming up, it’s time for both us and the flowers to soak up the sunshine</h5>
                             </a>
                             <div class="post-meta">
@@ -825,7 +810,7 @@
     <!-- ##### Blog Area End ##### -->
 
     <!-- ##### Subscribe Area Start ##### -->
-    <section class="subscribe-newsletter-area" style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/subscribe.png);">
+    <section class="subscribe-newsletter-area" style="background-image: url(img/bg-img/subscribe.png);">
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-12 col-lg-5">
@@ -848,7 +833,7 @@
 
         <!-- Subscribe Side Thumbnail -->
         <div class="subscribe-side-thumb wow fadeInUp" data-wow-delay="500ms">
-            <img class="first-img" src="${pageContext.request.contextPath }/resources/img/core-img/leaf.png" alt="">
+            <img class="first-img" src="img/core-img/leaf.png" alt="">
         </div>
     </section>
     <!-- ##### Subscribe Area End ##### -->
@@ -907,7 +892,7 @@
     <!-- ##### Contact Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area bg-img" style="background-image: url(${pageContext.request.contextPath }/resources/img/bg-img/3.jpg);">
+    <footer class="footer-area bg-img" style="background-image: url(img/bg-img/3.jpg);">
         <!-- Main Footer Area -->
         <div class="main-footer-area">
             <div class="container">
@@ -963,10 +948,10 @@
                             <!-- Single Best Seller Products -->
                             <div class="single-best-seller-product d-flex align-items-center">
                                 <div class="product-thumbnail">
-                                    <a href="shop-details.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/4.jpg" alt=""></a>
+                                    <a href="${pageContext.request.contextPath }/resources/shop-details.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/4.jpg" alt=""></a>
                                 </div>
                                 <div class="product-info">
-                                    <a href="shop-details.html">Cactus Flower</a>
+                                    <a href="${pageContext.request.contextPath }/resources/shop-details.html">Cactus Flower</a>
                                     <p>$10.99</p>
                                 </div>
                             </div>
@@ -974,10 +959,10 @@
                             <!-- Single Best Seller Products -->
                             <div class="single-best-seller-product d-flex align-items-center">
                                 <div class="product-thumbnail">
-                                    <a href="shop-details.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/5.jpg" alt=""></a>
+                                    <a href="${pageContext.request.contextPath }/resources/shop-details.html"><img src="${pageContext.request.contextPath }/resources/img/bg-img/5.jpg" alt=""></a>
                                 </div>
                                 <div class="product-info">
-                                    <a href="shop-details.html">Tulip Flower</a>
+                                    <a href="${pageContext.request.contextPath }/resources/shop-details.html">Tulip Flower</a>
                                     <p>$11.99</p>
                                 </div>
                             </div>

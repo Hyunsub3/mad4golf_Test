@@ -58,13 +58,13 @@ public class ProductController {
 		log.info("글쓰기 정보 : "+vo);
 		
 		// 서비스 - 글쓰기 동작
-		service.boardWrite(vo);
+		//service.boardWrite(vo);
 		
 		log.info(" 글쓰기 완료 !! ");
 		
 		//model.addAttribute("msg", "OK");
 		
-		// RedirectAttributes 객체 => rediret 페이지 이동시에만 사용가능
+		// RedirectAttributes 객체 => redirect 페이지 이동시에만 사용가능
 		rttr.addFlashAttribute("msg", "OK");
 		// -> 1회성 데이터 (체크용), URL에 표시 x
 		
@@ -75,15 +75,26 @@ public class ProductController {
 //		return "redirect:/board/listAll";
 		return "redirect:/board/listPage";
 	}
-	
-	
+
 	//http://localhost:8080/board/listAll
 	// 게시판 리스트 - 조회 (GET)
 	@RequestMapping(value = "/listAll",method = RequestMethod.GET)
 	public String listALLGET(ProductVO vo,Model model,HttpSession session) throws Exception {
 		log.info("listALLGET() 호출 ");
 
+// http://localhost:8080/product/listAll
+	// 상품 리스트 - 조회 (GET)
+	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
+	public String listAllGET(ProductVO vo, Model model, HttpSession session) throws Exception {
+		log.info("listAllGET() 호출 ");
 		
+		// 파라미터 불러오기(카테고리, 성별)
+		log.info("category : "+ vo.getCategory());
+		log.info("gender : "+ vo.getGender());
+		
+		// 연결된 view 페이지로 정보 전달
+		// model.addAttribute("category", vo.getCategory());
+
 		// 서비스 - 글전체 목록 가져오는 메서드
 		List<ProductVO> ProductList = service.getProductListAll(vo);
 		
@@ -127,6 +138,28 @@ public class ProductController {
 		return"/product/shop";
 	}
 	//상품 페이징 리스트(GET) : 페이징처리 완료된 페이지 호출
+	
+	// 상품등록 페이지  - 이동 (GET)
+	@RequestMapping(value = "/productInsert", method = RequestMethod.GET)
+	public void productInsertGET() throws Exception {
+		log.info("productInsert() 호출");
+		log.info("/product/productInsert.jsp 호출");
+	}
+	
+	// 상품 등록 - 등록 (POST)
+	@RequestMapping(value = "/productInsert",method = RequestMethod.POST)
+	public String productInsertPOST(ProductVO vo) throws Exception{
+		log.info("productInsertPOST() 호출");
+		
+		// 전달된 정보 저장
+		log.info("상품 정보 : " + vo);
+		
+		// 서비스 - 상품등록 동작
+		service.productInsert(vo);
+		
+		// 페이지 이동(리스트) 화면,주소 모두 변경
+		return "redirect:/";
+	}
 	
 	
 	// http://localhost:8080/board/read?bno=12

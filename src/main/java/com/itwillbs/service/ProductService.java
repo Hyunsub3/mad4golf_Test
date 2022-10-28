@@ -8,11 +8,11 @@ import com.itwillbs.domain.ProductVO;
 
 public interface ProductService {
 	
-	// 글쓰기 
-	public void boardWrite(BoardVO vo) throws Exception;
-	
 	// 상품 전체 목록 불러오기
 	public List<ProductVO> getProductListAll(ProductVO vo) throws Exception;
+	
+	// 상품 등록 (Insert)
+	public void productInsert(ProductVO vo) throws Exception;
 	
 	// 글 1개정보 불러오기
 	public BoardVO getBoard(Integer bno) throws Exception;

@@ -25,19 +25,6 @@ public class ProductDAOImpl implements ProductDAO {
 	private SqlSession sqlSession;
 
 	private static final String NAMESPACE = "com.itwillbs.mapper.ProductMapper";
-	
-	@Override
-	public void insertBoard(BoardVO vo) throws Exception{
-		log.info(" insertBoard(vo) 호출 ");
-		//log.info(vo+"");
-		
-		// SQL실행객체 - SqlSession객체(디비연결,Mybatis,매퍼,자원해제)
-		// 글쓰기(insert)
-		int result = sqlSession.insert(NAMESPACE+".create", vo);
-		
-		if(result >0)
-			log.info(" 글쓰기 완료! ");
-	}
 
 	@Override
 	public List<ProductVO> listAll(ProductVO vo) throws Exception {
@@ -57,6 +44,18 @@ public class ProductDAOImpl implements ProductDAO {
 		log.info("상품 개수 : "+ productList.size() + "개");
 		
 		return productList;
+	}
+	
+	@Override
+	public void insertProduct(ProductVO vo) throws Exception{
+		log.info("insertProduct(vo) 호출");
+		
+		// SQL 실행 - SqlSession 객체 (디비연결, Mybatis, 매퍼, 자원해제)
+		// 상품 등록 (Insert)
+		int result = sqlSession.insert(NAMESPACE + ".insert", vo);
+		
+		if(result > 0)
+			log.info("상품 등록 완료!");
 	}
 
 	@Override
